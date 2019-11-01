@@ -1,0 +1,5 @@
+<script>
+    var code;
+    code = "가".charCodeAt(0);
+    alert(code);
+</script>

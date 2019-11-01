@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form id="f_test" method="get" action="test.jsp">
+		<label for="name">이름</label>
+		<!-- id:ajax값접근,화면접근,js -->
+		<!-- name:서버에서 요청할 때 -->
+		<input type="text" name="mem_name" id="mem_name1"/><br><!--  -->
+	<!-- submit의 경우 즉시 전송이 일어남.(유효성 검사를 할 수 없다) -->
+		<input type="submit" value="제출"/>
+	</form>
+</body>
+</html>

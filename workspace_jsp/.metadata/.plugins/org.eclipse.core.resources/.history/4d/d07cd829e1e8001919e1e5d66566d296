@@ -1,0 +1,56 @@
+package com.mySNS2;
+
+import java.util.StringTokenizer;
+
+public class UrlParser {
+	/*******************************************************************
+	 * 
+	 * @param url mySNS2/login.sns or login.sns
+	 * @return methodName - 메소드 이름결정
+	 ******************************************************************/
+	public static String parse(String url) {
+		String methodName = null;
+		boolean isFlag = false;
+		String urls[] = null;
+		StringTokenizer st = new StringTokenizer(url,".");
+		int cnt = st.countTokens();
+		urls = new String[cnt];
+		for(int i=0;i<cnt;i++) {
+			//urls[0] = mySNS2/login
+			//urls[1] = sns
+			urls[i] = st.nextToken();
+			//System.out.println(urls[i]);
+		}
+		if(urls[0]!=null) {
+			String temp = urls[0];
+			//mySNS2/login 12
+			for(int j=0;j<temp.length();j++) {//length():문자열의 길이
+				char c = temp.charAt(j);
+				if(c=='/') {
+					isFlag = true;
+				}
+			}
+		}
+		//슬래쉬가 있는 경우
+		if(isFlag) {
+			String temp = urls[0];
+			String commands[] = null;
+			commands = temp.split("/");
+			//commands[0] = mySNS2저장
+			//methodName = commands[1] login이 저장
+			methodName = commands[commands.length-1];
+		}
+		//슬래쉬가 없을 때  login.sns
+		else {
+			methodName = urls[0];
+		}
+		return methodName;
+	}
+}
+
+
+
+
+
+
+

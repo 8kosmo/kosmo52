@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	<bean id="moreComplexObject" class="com.di.ComplexObject">
+		<property name="someMap">
+			<map>
+				<entry>
+					<key><value>first</value></key>
+					<value>고명석</value>
+				</entry>
+				<entry>
+					<key><value>second</value></key>
+					<value>유승기</value>
+				</entry>
+				<entry>
+					<key><value>third</value></key>
+					<value>정재현</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,12 @@
+package ui.jeasyui;
+
+public class Dialog {
+	public String setDialog(String question) {
+		String imsi="";
+		StringBuffer sb = new StringBuffer();
+		sb.append("<div id="dd" class="easyui-dialog"> ");
+		sb.append("    Dialog Content.                 ");
+		sb.append("</div>                              ");
+		return imsi;
+	}
+}

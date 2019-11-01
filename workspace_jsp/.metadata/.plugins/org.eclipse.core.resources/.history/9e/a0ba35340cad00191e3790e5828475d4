@@ -1,0 +1,53 @@
+package com.mvc1;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+import com.vo.ZipCodeVO;
+
+public class TestController extends HttpServlet implements Action{
+	Logger logger = Logger.getLogger(TestController.class);
+	TestLogic tLogic = new TestLogic();
+	@Override
+	public ActionForward execute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		ActionForward forward = new ActionForward();
+		String viewName = null;
+		boolean isRedirect = false;
+		//command="/onLineTest/subjectList.kos?work=onLineTest
+		//command.substring(0,end);
+		String crud = (String)req.getAttribute("crud");// member/memberInsert
+		//==> /onLineTest/subjectList.kos?work=onLineTest
+		if("onLineTest/subjectList".equals(crud)) {
+			logger.info("수험과목 조회 호출 성공");
+			List<Map<String,Object>> subList = null;
+			subList = tLogic.subjectList();
+			req.setAttribute("subList", subList);
+			viewName = "jsonSubjectList.jsp";
+			isRedirect = false;
+			forward.setRedirect(isRedirect);
+			forward.setViewName(viewName);			
+		}
+		return forward;
+	}
+	@Override
+	public List<Map<String, Object>> test(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public ActionForward execute(HttpServletRequest req, HttpServletResponse res, String crud)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

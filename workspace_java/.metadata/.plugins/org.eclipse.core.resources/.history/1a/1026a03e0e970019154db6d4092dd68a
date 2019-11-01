@@ -1,0 +1,50 @@
+package com.network1;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+//클라이언트측에서는 Runnable하지 않았다. - 단일스레드이다.
+//why? - 경합,선택에 따른 지속적인 서비스
+public class TalkClient extends JFrame implements ActionListener{
+	//속지 세장 추가하기
+	JPanel 		jp_center 		= new JPanel();
+	JPanel 		jp_east 		= new JPanel();
+	JPanel 		jp_east_south 	= new JPanel();
+	//메세지 내역 출력  - 비활성함. -이벤트처리 필요없음
+	JTextArea 	jta_display 	= new JTextArea();
+	JScrollPane jsp_display		= new JScrollPane(jta_display
+			                                     ,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
+			                                     ,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+	//메시지 전송할 때 - 이벤트처리 필요함
+	JTextField  jtf_msg			= new JTextField();
+	String cols[] = {"닉네임"};
+	String data[][] = new String[0][1]();
+	public TalkClient() {
+		
+	}
+	public void initDisplay() {
+		
+	}
+	public void exitChat() {
+		
+	}
+	public void message_process(String msg) {
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	//말하기 인가? 아님 듣기 인가?
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		
+	}
+
+}

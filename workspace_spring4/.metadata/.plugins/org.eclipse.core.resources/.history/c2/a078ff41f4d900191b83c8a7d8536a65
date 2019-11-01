@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+
+%>
+<select id="zdo" class="form-control" style="width:150px">
+<%
+	for(){
+%>
+	<option value="">요기</option>
+<%
+	}
+%>
+</select>

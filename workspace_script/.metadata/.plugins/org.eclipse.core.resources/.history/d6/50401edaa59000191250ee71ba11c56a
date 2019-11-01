@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form>
+		<label for="name">이름</label>
+		<!-- id:ajax값접근,화면접근,js -->
+		<!-- name:서버에서 요청할 때 -->
+		<input type="text" name="mem_name" id="mem_name"/><br>
+	</form>
+</body>
+</html>

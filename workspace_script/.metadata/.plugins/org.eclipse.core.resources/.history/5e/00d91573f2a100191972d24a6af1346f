@@ -1,0 +1,11 @@
+package naver.captcha;
+
+public class APIExamCaptchaAll {
+/*
+ * ik_9iwk0aCNEp85yIYA5
+ * br6PPxlpBj
+ */
+ public static void main(String[] args) {
+ }
+ 
+}

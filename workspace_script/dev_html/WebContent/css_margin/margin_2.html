@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+	/* 
+	아래 시각적인 속성을 주석으로 처리하면 마진 겹칩이 일어남
+	부모태그 마진 자식태그 마진 중 큰값이 적용됨.
+	 */
+		#parent {
+			border:1px solid red;
+			margin-top:50px;
+		}
+		#child {
+			background-color:blue;
+			margin-top:100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="parent">
+		<div id="child">
+			Hello World
+		</div>
+	</div>
+</body>
+</html>

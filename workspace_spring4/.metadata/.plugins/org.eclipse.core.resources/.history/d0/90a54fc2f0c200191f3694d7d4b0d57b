@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <servlet>
+  	<servlet-name>spring4Web</servlet-name>
+	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+<!-- 
+ log4j, 보안모듈, 한글 처리, 트랜잭션 처리는 하나 프로젝트에서 공통된 관심사 이고 처음 서버가 기동할 때 
+ 읽어서 계속 유지하면 되는 것이다. 
+ 이 땐 context-param태그를
+ 서블릿 요청이 일어날때 마다 새로 초기화 해야 할 땐 init-param태그를 사용함.
+ -->	  
+	<init-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring-servlet.xml</param-value>
+	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>spring4Web</servlet-name>
+  	<url-pattern>*.sp4</url-pattern>
+  </servlet-mapping>
+</web-app>

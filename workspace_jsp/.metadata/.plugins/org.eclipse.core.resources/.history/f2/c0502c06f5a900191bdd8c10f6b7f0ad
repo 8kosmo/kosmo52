@@ -1,0 +1,31 @@
+package com.mvc1;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.log4j.Logger;
+
+import com.vo.ZipCodeVO;
+
+public class ZipCodeDao {
+	Logger logger = Logger.getLogger(ZipCodeDao.class);
+	/*******************************************************************
+	 * 
+	 * @param dong 사용자로 부터 동 정보는 입력 받아서 처리함.
+	 * @return 조회 결과가 n건인 경우도 있을 있으니까..List<ZipCodeVO>로 함.
+	 ******************************************************************/
+	public List<ZipCodeVO> zipcodeList(String dong) {
+		//테스트시 Exception발생하면 화면을 볼 수없으므로 초기화 진행함.
+		List<ZipCodeVO> zipcodeList = new ArrayList<>();
+		try {
+			SqlSession sqlSession = 
+					sqlSessionFactory.openSession();
+			zipcodeList = sqlSession.selectList("memberList");
+			sqlSession.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		return zipcodeList;
+	}
+}

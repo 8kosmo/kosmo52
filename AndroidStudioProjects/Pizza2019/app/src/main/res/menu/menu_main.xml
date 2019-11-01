@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_create_order"
+        android:title="Create Order"
+        android:icon="@drawable/ic_add_white_24dp"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom" />
+<!--
+withText : 항목의 제목 텍스트를 포함
+never: 항목을 오버플로 영역에 추가하며 앱바 메인 영역에는 절대
+표시하지 않음.
+always : 항상 항목 앱바의 메인 영역에 추가함.
+이 옵션은 필요할 때만 사용할것. 너무 많이 사용하면 서로 겹칠 수 있음.
+-->
+    <item
+        android:id="@+id/action_share"
+        android:title="Share"
+        android:orderInCategory="2"
+        app:showAsAction="ifRoom"
+        app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider"
+        />
+</menu>

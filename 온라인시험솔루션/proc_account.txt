@@ -1,0 +1,111 @@
+
+
+edit exam_paper
+
+edit take_examination
+
+edit sw_design
+
+SELECT DECODE(dap1,(SELECT dap FROM sw_design 
+                    WHERE d_no=1),1,0)
+     ,DECODE(dap2,(SELECT dap FROM sw_design 
+                    WHERE d_no=2),1,0)
+     ,DECODE(dap3,(SELECT dap FROM sw_design 
+                    WHERE d_no=3),1,0) 
+     ,DECODE(dap4,(SELECT dap FROM sw_design 
+                    WHERE d_no=4),1,0)                             
+ FROM exam_paper
+ 
+SELECT dap1 udap FROM exam_paper 
+UNION ALL
+SELECT dap2 FROM exam_paper
+UNION ALL
+SELECT dap3 FROM exam_paper
+UNION ALL
+SELECT dap4 FROM exam_paper
+
+SELECT
+       decode(a.dap,udap,1,0)
+  FROM sw_design a,
+      (
+        SELECT dap1 udap FROM exam_paper 
+        UNION ALL
+        SELECT dap2 FROM exam_paper
+        UNION ALL
+        SELECT dap3 FROM exam_paper
+        UNION ALL
+        SELECT dap4 FROM exam_paper      
+      )b
+where a.d_no=b.rownum      
+
+        SELECT dap1 udap FROM exam_paper 
+        UNION ALL
+        SELECT dap2 FROM exam_paper
+        UNION ALL
+        SELECT dap3 FROM exam_paper
+        UNION ALL
+        SELECT dap4 FROM exam_paper 
+        
+SELECT
+       rownum rno, udap
+ FROM (
+        SELECT dap1 udap FROM exam_paper 
+        UNION ALL
+        SELECT dap2 FROM exam_paper
+        UNION ALL
+        SELECT dap3 FROM exam_paper
+        UNION ALL
+        SELECT dap4 FROM exam_paper         
+      )        
+
+
+CREATE OR REPLACE PROCEDURE proc_account(msg OUT varchar2)
+IS
+jdap number(2):=0;
+u1 number(1):=0;
+u2 number(1):=0;
+u3 number(1):=0;
+u4 number(1):=0;
+r1 number(3):=0;
+w1 number(3):=0;
+d_no number(3):=1;
+CURSOR c_dap IS
+SELECT dap FROM sw_design;
+BEGIN
+    SELECT dap1,dap2,dap3,dap4 INTO u1,u2,u3,u4
+      FROM exam_paper;
+    open c_dap;
+    LOOP
+     fetch c_dap into jdap;
+     exit when c_dap%notfound;
+     --d_no는 문제번호를 비
+     if d_no=1 then
+         if jdap=u1 then
+            r1:=r1+1;
+         else
+            w1:=w1+1;   
+         end if;
+     elsif d_no=2 then
+         if jdap=u2 then
+            r1:=r1+1;
+         else
+            w1:=w1+1;   
+         end if;         
+     elsif d_no=3 then
+         if jdap=u3 then
+            r1:=r1+1;
+         else
+            w1:=w1+1;   
+         end if;  
+     elsif d_no=4 then
+         if jdap=u4 then
+            r1:=r1+1;
+         else
+            w1:=w1+1;   
+         end if;                
+     end if;      
+     d_no:=d_no+1;   
+    END LOOP;
+    msg:='정답:'||r1||' 오답:'||w1;
+    close c_dap;
+END;

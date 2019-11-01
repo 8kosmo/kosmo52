@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>A.jsp</title>
+</head>
+<body>
+<%
+	String name="john";
+	//요청에 객체에 담기
+    request.setAttribute("name", name);
+	response.sendRedirect("B.jsp");
+%>
+여기
+</body>
+</html>

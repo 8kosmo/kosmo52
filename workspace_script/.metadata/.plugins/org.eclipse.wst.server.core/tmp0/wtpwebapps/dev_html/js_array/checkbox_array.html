@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+    html태그 경우 같은 이름이 두 개 이상이면 자동으로 배열전환됨.
+    태그 이름이 한개일 때는 배열이 아니다.
+    반드시 두 개 이상일 때만 배열로 접근가능하다.
+ -->
+<head>
+<meta charset="UTF-8">
+<title>배열활용 연습</title>
+    <script>
+        function clearAll(){
+            for(var i=0;i<document.f_list.check.length;i++){
+                if(document.f_list.check[i].checked ==1){
+                    document.f_list.check[i].checked=0;
+                }
+            }
+        }
+        function checkBoxAll(){
+            //전체체크박스를 선택했을 때
+            if(document.f_list.checkAll.checked ==1){
+                clearAll();
+                for(var j=0;j<document.f_list.check.length;j++){
+                    document.f_list.check[j].checked =1;
+                }
+            }
+            //전체 체크박스를 해제했을 때
+            else{
+                for(var j=0;j<document.f_list.check.length;j++){
+                        document.f_list.check[j].checked =0;
+                    }
+            }
+        }
+    </script>
+</head>
+<body>
+    <table border="1" borderColor="green" width="400px">
+        <form name="f_list">
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="checkAll" name="checkAll" onclick="checkBoxAll()"></th>
+                <th>제목</th>
+                <th>날짜</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="center"><input type="checkbox" id="check" name="check"></td>
+                <td>제목1</td>
+                <td>2019-06-13</td>
+            </tr>
+            <tr>
+                <td align="center"><input type="checkbox" id="check" name="check"></td>
+                <td>제목2</td>
+                <td>2019-06-13</td>
+            </tr>
+            <tr>
+                <td align="center"><input type="checkbox" id="check" name="check"></td>
+                <td>제목3</td>
+                <td>2019-06-13</td>
+            </tr>
+        </tbody>
+        </form>
+    </table>
+</body>
+</html>

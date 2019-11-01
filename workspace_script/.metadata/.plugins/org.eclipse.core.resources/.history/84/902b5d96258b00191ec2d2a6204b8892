@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>주소록</title>
+</head>
+<body>
+	<table border="1" width="800px" height="400px">
+		<caption>주소록</caption>
+		<thead>
+			<tr>
+				<th>아이디</th>
+				<th>이름</th>
+				<th>주소</th>
+				<th>전화번호</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>test</td>
+				<td>김유신</td>
+				<td>서울시 금천구 가산동</td>
+				<td>02-2563-4589</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="4" align="center">여기는 푸터 입니다.</td>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+</html>

@@ -1,0 +1,12 @@
+package com.erp;
+
+import org.apache.log4j.Logger;
+
+public class DeptDao {
+
+	Logger logger = Logger.getLogger(DeptDao.class);
+	public void deptInsert(Object object) {
+		logger.info("deptInsert 호출 성공");
+	}
+
+}

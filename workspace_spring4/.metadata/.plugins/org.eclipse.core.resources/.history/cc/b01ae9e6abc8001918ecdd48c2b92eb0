@@ -1,0 +1,17 @@
+package com.sts3.board;
+
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class BoardLogic {
+	Logger logger = Logger.getLogger(BoardLogic.class);
+	@Autowired
+	private BoardDao boardDao = null;
+	public void boardList(Map<String, Object> pMap) {
+		logger.info("boardList 호출 성공");
+		boardDao.boardList(pMap);
+	}
+
+}

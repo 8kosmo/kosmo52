@@ -1,0 +1,24 @@
+package config;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.sts3.pojo.DeptController;
+import com.sts3.pojo.DeptLogic;
+
+@Configuration
+public class ControllerConfig {
+	Logger logger = LoggerFactory.getLogger(ControllerConfig.class);
+	@Bean
+	public DeptController deptController() {
+		DeptController deptController = new DeptController();
+		return deptController;
+	}
+	@Bean
+	public DeptLogic deptLogic() {
+		DeptLogic deptLogic = new DeptLogic();
+		return deptLogic;
+	}
+}

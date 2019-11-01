@@ -1,0 +1,68 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html> 
+ <head>
+  <meta charset="UTF-8">
+  <title>Break Neck Pizza Delivery</title>     
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript">
+    function orderPizza(){
+    	alert("주소:"+$("#mem_addr").val());
+    	$("#f_pizza").attr("action","orderConfirm.jsp");
+    	$("#f_pizza").attr("method","get");
+    	$("#f_pizza").submit();
+    }
+  	function getCustomerInfo(){
+		//alert("11");
+		//태그의 아이디인 mem_tel을 사용하여 val()메소드를 호출하면 사용자가 입력한
+		//값을 읽어올 수 있다.
+		var user_tel = $("#mem_tel").val();
+		//alert(user_tel);
+		//$("#mem_tel").text("입력한 값");
+		/*
+		jquery api를 사용하면 비동기 통신 객체 생성하지 않고 바로 요청 처리할 수 있어서
+		코딩양도 줄어들고 메소드 한개로 처리가 가능함.
+		*/
+		$.ajax({
+			method:"GET"
+		   ,url:"/sample/rest/customerInfo.do?mem_tel="+user_tel+"&"+new Date().getTime()
+		   ,success:function(data){
+			   //alert(data);
+			   $("#mem_addr").text(data);
+		   }///////////////end of success
+		});////////////////end of ajax
+  	}
+  </script>
+ </head>
+ <body>
+  <p><img src="../images/breakneck-logo.gif" alt="Break Neck Pizza" /></p>
+   <p>Enter your phone number:
+    <input type="text" size="14" id="mem_tel" name="mem_tel" onChange="getCustomerInfo()"/>
+   </p>
+ 	 <form id="f_pizza"> 
+ 	<input type="hidden" id="mem_name" name="mem_name" value="홍길동">
+   <p>Type your order in here:</p>
+   <p><textarea name="paper" id="paper" rows="6" cols="50"></textarea></p>
+   <p>Your order will be delivered to:</p>
+   <!-- 
+   JSON포맷의 이름과 태그의 name속성과 id속성을 같은 값으로 통일함.
+   name속성은 jsp에서 사용자가 입력한 값을 읽을 때 사용함.
+   id속성은 javascript에서 사용자가 입력한 값을 읽을 때 사용함.
+   name과 id속성은 같은 값을 사용함.
+   오라클 서버에 테이블 컬럼명과 VO패턴의 멤버변수 이름, Map의 key는 모두 통일해서 사용함.
+    -->
+   <p><textarea name="mem_addr" id="mem_addr" rows="4" cols="50"></textarea></p>
+   <p><input type="button" id="btn_order" value="Order Pizza" onclick="orderPizza()"/></p>
+  <div id="d_msg"></div>
+  </form>
+ </body>
+</html>
+
+
+
+
+
+
+
+

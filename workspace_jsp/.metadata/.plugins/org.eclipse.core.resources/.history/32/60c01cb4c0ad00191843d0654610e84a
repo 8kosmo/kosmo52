@@ -1,0 +1,63 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문제1</title>
+<%@include file="../common/JEasyUICommon.jsp" %>
+<script type="text/javascript">
+	function answer(p_dap){//p_dap변수 1,2,3,4
+		//브라우저가 돔구성시 같은 이름이면 자동으로 배열전환
+		for(var i=0;i<document.f_test1.cb.length;i++){
+			if(p_dap==i){
+				document.f_test1.cb[i].checked=1;
+			}
+			else{
+				document.f_test1.cb[i].checked=0;
+			}
+		}
+	}
+	//다음문제 선택시 이전문제 답안지 기억하기 - hidden속성
+	function next(){
+		var temp = 1;
+		for(var i=0;i<document.f_test1.cb.length;i++){
+			if(document.f_test1.cb[i].checked==1){
+				document.f_test1.dap1.value = temp;
+				alert("값:"+document.f_test1.dap1.value);
+			}else{
+				temp = temp + 1;
+			}
+		}
+		document.f_test1.submit();
+	}
+</script>
+</head>
+<body>
+<div class="easyui-panel" title="문제1" style="width:600px;height:100px"
+			data-options="fit:true,border:true,footer:'#footer'">
+	<form id="f_test1" method="get" action="test2.jsp">
+	<input type="hidden" id="dap1" name="dap1"/>		
+	<div>
+	문제1. DML구문 중에서 성격이 다른 하나를 고르시오.
+	</div>
+	<div style="margin-bottom:20px"></div>
+	<input type="checkbox" name="cb" onChange="answer(0)">
+	1.INSERT
+	<div style="margin-bottom:10px"></div>
+	<input type="checkbox" name="cb" onChange="answer(1)">
+	2.SELECT
+	<div style="margin-bottom:10px"></div>
+	<input type="checkbox" name="cb" onChange="answer(2)">
+	3.UPDATE
+	<div style="margin-bottom:10px"></div>
+	<input type="checkbox" name="cb" onChange="answer(3)">
+	4.DELETE
+	<div style="margin-bottom:10px"></div>
+	</form>
+</div>	
+<div id="footer" style="padding:5px;">
+ <a href="javascript:location.href='test2.jsp'" class="easyui-linkbutton" style="width:80px">다음문제</a>
+</div>
+</body>
+</html>

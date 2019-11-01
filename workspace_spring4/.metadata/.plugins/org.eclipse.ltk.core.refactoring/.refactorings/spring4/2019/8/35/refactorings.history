@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;member.xml&apos; to &apos;spring5/src/main/java/com.mybatis.mapper&apos;&#x0D;&#x0A;- Original project: &apos;spring4&apos;&#x0D;&#x0A;- Destination element: &apos;spring5/src/main/java/com.mybatis.mapper&apos;&#x0D;&#x0A;- Original element: &apos;member.xml&apos;" description="Copy file" destination="=spring5/src\/main\/java&lt;com.mybatis.mapper" element1="src/com/mybatis/mapper/member.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1566808986688" units="0" version="1.0"/>
+</session>

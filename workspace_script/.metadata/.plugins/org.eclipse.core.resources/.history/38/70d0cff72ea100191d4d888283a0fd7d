@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>구글맵 서비스 API 활용 - marker[multiMarkergoogleMap.html]</title>
+</head>
+<body>
+	<div id="map" style="height: 500px;"></div>
+	<script type="text/javascript">
+		function initMap(){
+			//alert("11");
+			//둘둘치킨 가산디지털역 의 위도와 경도 값을 배열로 선언
+			var curLatLng = {
+				lat:37.480879 
+			   ,lng:126.882433
+			};
+			//구글에서 제공하는 Map객체를 생성하기
+			//지도 출력시 중앙의 위치를 설정하고 내가 보고 싶은 위치는 별도로 추가가능
+			//map속성에는 생성한 Map객체를 치환
+			//zoom속성에 따라 상세도가 결정됨.
+			var map = new google.maps.Map(document.getElementById("map"),{
+				center:curLatLng
+			   ,position:curLatLng
+			   ,map:map
+			   ,zoom: 15
+			});
+			//마커객체 생성하기
+			var marker = new google.maps.Marker({
+				map:map,
+				position:curLatLng,
+				title:'둘둘치킨'
+			});
+			//마커 최대 폭
+			var markerMaxWidth = 300;
+			//말풍선 내용
+			var contents = "<div><h3>회식장소</h3><p>내용 추가</p><img src='twotwo.jpg' width='90px' height='50px'></div>";
+			var infoWindow = new google.maps.InfoWindow({
+				content:contents
+			   ,maxWidth:markerMaxWidth
+			});
+			//마커를 클릭했을 때 이벤트 처리 - 말풍선 띄운다.
+			//1)마커객체 변수명,2)이벤트이름,3)이벤트 처리
+			google.maps.event.addListener(marker,'click',function(){
+				infoWindow.open(map,marker);
+			});
+		}
+	</script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-FKKja8sdfgMggjEvEa5agaP6D9wBd6s&callback=initMap"></script>
+</body>
+</html>
+
+
+
+
+
+

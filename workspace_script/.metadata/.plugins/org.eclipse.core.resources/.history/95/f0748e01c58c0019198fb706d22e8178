@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//html태그를 자바스크립트 코드를 통해서 접근하고 제어할 수 있다.
+//자바스크립트도 오픈소스(자바스크립트 프레임워크 발전-node.js, angluar.js, react.js, vue.js)가 있다.
+//document는 모든 태그의 최상위 객체이다.-  document_1.html	
+</script>
+</head>
+<body>
+<style>
+	#parent {
+		border:1px solid red;
+	}
+</style>
+<script type="text/javascript">
+/* write함수는 브라우저에 문자열을 출력해줌. */
+	document.write("<div id='parent'>");
+	document.write("document","<font color='red'>","html5","</font>","CSS");
+	document.write("</div>");
+</script>
+</body>
+</html>

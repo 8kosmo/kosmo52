@@ -1,0 +1,26 @@
+package com.mySNS2;
+
+import java.util.StringTokenizer;
+
+public class UrlParser {
+	/*******************************************************************
+	 * 
+	 * @param url mySNS2/login.sns or login.sns
+	 * @return methodName - 메소드 이름결정
+	 ******************************************************************/
+	public static String parse(String url) {
+		String methodName = null;
+		boolean isFlag = false;
+		String urls[] = null;
+		StringTokenizer st = new StringTokenizer(url,".");
+		int cnt = st.countTokens();
+		urls = new String[cnt];
+		for(int i=0;i<cnt;i++) {
+			//urls[0] = mySNS2/login
+			//urls[1] = sns
+			urls[i] = st.nextToken();
+			System.out.println(urls[i]);
+		}
+		return methodName;
+	}
+}

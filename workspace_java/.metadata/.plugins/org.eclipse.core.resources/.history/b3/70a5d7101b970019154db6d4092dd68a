@@ -1,0 +1,21 @@
+package com.network1;
+
+public class TalkServerThread extends Thread {
+	TalkServer ts = null;
+	public TalkServerThread(TalkServer ts) {
+		this.ts = ts;
+	}
+	//서버에 접속한 모든 사용자들에게 메시지를 전송 처리함.
+	public void broadCasting(String msg) {//200|누가|누구에게|오늘 스터디할까?
+		for(TalkServerThread tst:ts.chatList) {
+			tst.send(msg);//this.send(msg), tst.send(msg) 차이
+		}
+	}
+	public void send(String msg) {//반복문은 필요없다.
+		
+	}
+	//run메소드 안에서는 무엇을 구현해야 되는걸까?
+	public void run() {
+		
+	}
+}

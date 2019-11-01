@@ -1,0 +1,63 @@
+package com.mvc1;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+import com.vo.ZipCodeVO;
+
+public class TestController extends HttpServlet implements Action{
+	Logger logger = Logger.getLogger(TestController.class);
+	TestLogic tLogic = new TestLogic();
+	@Override
+	public ActionForward execute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		ActionForward forward = new ActionForward();
+		String viewName = null;
+		boolean isRedirect = false;
+		//command="/onLineTest/subjectList.kos?work=onLineTest
+		//command.substring(0,end);
+		String crud = (String)req.getAttribute("crud");// member/memberInsert
+		//==> /onLineTest/subjectList.kos?work=onLineTest
+		if("onLineTest/examReceipt".equals(crud)) {
+			logger.info("시험 접수 호출 성공");
+			int result = -1;//시험 접수 성공 여부
+			//사용자가 입력한 값 받아오기
+			//화면에서 받아올 것들 - 아이디, 과목, 응시일자
+			
+			//서버에서 새로 채번할 것들 - 수험번호
+		}
+		else if("onLineTest/subjectList".equals(crud)) {
+			logger.info("수험과목 조회 호출 성공");
+			List<Map<String,Object>> subList = null;
+			subList = tLogic.subjectList();
+			//조회된 결과를 변수에 담음.-request저장소
+			//request저장소는 forward일때만 유지
+			req.setAttribute("subList", subList);
+			viewName = "jsonSubjectList.jsp";
+			isRedirect = false;
+			forward.setRedirect(isRedirect);
+			forward.setViewName(viewName);			
+		}
+		return forward;
+	}
+	@Override
+	public List<Map<String, Object>> test(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public ActionForward execute(HttpServletRequest req, HttpServletResponse res, String crud)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

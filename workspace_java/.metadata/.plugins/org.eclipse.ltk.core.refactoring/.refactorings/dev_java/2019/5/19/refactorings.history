@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.kim&apos; to &apos;com.practice&apos;&#x0D;&#x0A;- Original project: &apos;dev_java&apos;&#x0D;&#x0A;- Original element: &apos;dev_java/src/com.kim&apos;&#x0D;&#x0A;- Renamed element: &apos;dev_java/src/com.practice&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.kim&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;com.kim" name="com.practice" qualified="false" references="true" stamp="1557306759451" textual="false" version="1.0"/>
+</session>

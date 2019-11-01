@@ -1,0 +1,18 @@
+package com.address;
+
+import java.util.List;
+
+public class RetrieveLogic {
+	AddressBookInterface aDao = new AddressBookDao();
+	public AddressVO addressDetail(AddressVO paVO) {
+		System.out.println("RetrieveLogic addressDetail");
+		return null;
+	}
+
+	public List<AddressVO> getAddressList() {
+		System.out.println("RetrieveLogic getAddressList호출 성공");
+		List<AddressVO> list = null;
+		return list;
+	}
+
+}

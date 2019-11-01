@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자동갱신 페이지 구현</title>
+	<script type="text/javascript">
+		var watch;
+		function start(){
+			watch = setInterval(autoReload, 3000);
+		}
+	</script>	
+</head>
+<body onLoad="newsStart()">
+<h3>헤드라인 뉴스</h3>
+<!-- 뉴스 전광판 추가 -->
+<div id="d_news">뉴스 준비중.....</div>
+<button onclick="start()">시작</button>
+</body>
+</html>

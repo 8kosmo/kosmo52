@@ -1,0 +1,33 @@
+package com.ch3;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+public class PetServlet extends HttpServlet {
+	Logger logger = Logger.getLogger(PetServlet.class);
+	public void service(HttpServletRequest req, HttpServletResponse res)
+	throws ServletException{
+		String uri = req.getRequestURI();
+		String context = req.getContextPath();
+		StringBuffer url = req.getRequestURL();
+		logger.info("url:"+uri);
+		logger.info("context:"+context);
+		logger.info("url:"+url);
+		//애완동물 초이스 하는 페이지 처리
+		if("/ch3/petChoice.do".equals(uri)) {
+			
+		}
+	}
+	public void doGet(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException{
+		service(req,res);
+	}
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException{
+		service(req,res);
+	}
+}

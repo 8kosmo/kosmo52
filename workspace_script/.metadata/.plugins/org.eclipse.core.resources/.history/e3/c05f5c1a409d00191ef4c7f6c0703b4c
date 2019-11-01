@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자동갱신 페이지 구현</title>
+	<script type="text/javascript">
+		var watch;
+		function start(){
+			watch = setInterval(autoReload, 3000);
+		}
+		function autoReload(){
+			$.ajax({
+				type:"get"
+			   ,url:"newsData.jsp"
+			   ,success:function(result){
+				   $("#d_news").html(result);
+			   }
+			});
+		}
+	</script>	
+</head>
+<!-- onLoad 이벤트는 해당 페이지의 돔 구성이 완료되었을 때 발생함. -->
+<body onLoad="newsStart()">
+<h3>헤드라인 뉴스</h3>
+<!-- 뉴스 전광판 추가 -->
+<div id="d_news">뉴스 준비중.....</div>
+<button onclick="start()">시작</button>
+</body>
+</html>

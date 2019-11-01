@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="com.mvc1.MemberDao, com.vo.MemberVO" %>    
+<%@ page import="java.util.ArrayList" %>    
+<%
+	MemberDao mDao = new MemberDao();
+	MemberVO mVO = new MemberVO();
+	mDao.my_proc2(mVO);
+	//out.print(mVO);
+	out.print("<br>");
+	//out.print(mVO.getKey());
+	//위와 같은 방법으로는 아이디나 이름, 비번을 꺼낼 수 없다.
+	out.print(mVO.getKey().getClass());
+	ArrayList aList = mVO.getKey();
+	out.print(aList+" , "+aList);
+/* 	for(int i=0;i<aList.size();i++){
+		MemberVO mVO = aList.get(i);
+		out.print(mVO.getMem_id()+" , "+mVO.getMem_name()+" , "+mVO.getMem_pw());		
+	} */
+	//ArrayList 안에는 어떤 타입이 들어있지? MemberVO
+ 	Iterator iter = aList.iterator();
+	while(iter.hasNext()){
+		out.print(iter.next());
+		//out.print(mVO.getMem_id()+" , "+mVO.getMem_name()+" , "+mVO.getMem_pw());
+		
+	}
+/* 	if(mVO.getKey().getClass()){
+		
+	}else{
+		
+	} */
+%>
+
+
+
+
+
+
+

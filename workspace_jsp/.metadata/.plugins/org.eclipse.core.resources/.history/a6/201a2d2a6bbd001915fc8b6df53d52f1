@@ -1,0 +1,14 @@
+package com.mvc3;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class ModelAndView {
+	HttpServletRequest req = null;
+	HttpServletResponse res = null;
+	public ModelAndView() {
+	}
+	public ModelAndView(HttpServletRequest req,HttpServletResponse res) {
+		
+	}
+}

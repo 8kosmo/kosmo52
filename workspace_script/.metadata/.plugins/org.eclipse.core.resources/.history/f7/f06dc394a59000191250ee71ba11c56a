@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form>
+		<label for="name">이름</label>
+		<input type="text" name="mem_name" id="mem_name"/><br>
+	</form>
+</body>
+</html>

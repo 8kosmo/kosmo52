@@ -1,0 +1,16 @@
+package com.util;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+
+public class MyBatisCommonFactory {
+	private static SqlSessionFactory sqlSessionFactory = null;
+
+	public static SqlSessionFactory getSqlSessionFactory() {
+		//SqlSessionFactory객체를 생성해야 SqlSession객체를 생성할 수 있음.
+		//SqlSessionFactory객체를 생성하기 위해서는 DB커넥션 정보를 읽어야 함.
+		//따라서 초기화에 필요한 메소드를 추가할 것.
+		init();
+		return sqlSessionFactory;
+	}
+	
+}

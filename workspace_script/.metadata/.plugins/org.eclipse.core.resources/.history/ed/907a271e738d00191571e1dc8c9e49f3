@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<!-- 
+	자바스크립트 코드가 올 수 있는 위치는 어디에?.......
+	1)script 태그 내부영역
+	2)외부 스트크립트
+	3)이벤트 핸들러
+	4)URL속성
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

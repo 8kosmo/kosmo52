@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>글상세보기</title>
+<%@ include file="/common/JEasyUICommon.jsp" %>
+</head>
+<body>
+<table id="pan_read" class="easyui-panel" title="글상세보기"
+ style="width:670px;height:380px;padding:10px;background:#fafafa;">
+	<tr>
+		<td>제목</td>
+		<td><input class="easyui-textbox" id="bm_title" data-options="width:'450px'"></td>
+	</tr>
+</table>
+<!-- 수정하기, 삭제하기, 댓글쓰기, 목록 버튼 -->
+<!--================== [[글수정하기 화면]] ==================-->
+<!--================== [[글삭제하기 화면]] ==================-->
+<!--================== [[댓글쓰기 화면]] ==================-->
+
+</body>
+</html>

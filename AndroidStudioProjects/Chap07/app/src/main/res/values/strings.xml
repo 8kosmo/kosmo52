@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Chap07</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Second프래그먼트추가</string>
+</resources>

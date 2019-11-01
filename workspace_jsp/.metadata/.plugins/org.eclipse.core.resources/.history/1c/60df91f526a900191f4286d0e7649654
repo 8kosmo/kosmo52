@@ -1,0 +1,58 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원관리</title>
+<%@ include file="../common/JEasyUICommon.jsp" %>
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function (){
+		$('#dg_member').datagrid({
+			title:"회원관리 ver1.0",
+			toolbar:"#tb_member",
+		    columns:[[
+		        {field:'MEM_ID',title:'아이디',width:150},
+		        {field:'MEM_NAME',title:'이름',width:150},
+		        {field:'MEM_ADDR',title:'주소',width:300,align:'left'}
+		    ]]
+		});///////////end of datagrid
+		$('#dlg_ins').dialog({
+			width:450
+		   ,height: 200
+		   ,footer:"#tb_ins"
+		   ,closed:false
+		});
+	});
+</script>
+<table id="dg_member"></table>
+<div id="tb_member" style="padding:5px;">
+<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'">가입</a>
+</div>
+<!--======================= 회원가입 =======================-->
+<div id="dlg_ins">
+<table>
+	<tr>
+		<td width="130px"></td><td width="300px"></td>
+	</tr>
+</table>
+</div>
+<div id="tb_ins" style="padding:5px;">
+<a id="btn_save" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save'">저장</a>
+<a id="btn_close" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'">닫기</a>
+</div>
+<!--======================= 회원가입 =======================-->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

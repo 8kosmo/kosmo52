@@ -1,0 +1,639 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add and Remove Layout - jQuery EasyUI Demo</title>
+    <!-- 
+    easyui.cssë jeasyuiê° ì ê³µíë ì½¤í¬ëí¸(ì:datagrid,layout ë±)ì 
+       ëìì¸ì ìí ë ì¬ì©ë¨
+     -->
+    <link rel="stylesheet" type="text/css" href="/themes/default/easyui.css">
+	<!-- icon.cssë ìì´ì½ ì´ë¯¸ì§ ì²ë¦¬íëë° ì¬ì©ë¨ -->   
+    <link rel="stylesheet" type="text/css" href="/themes/icon.css">
+    <!-- jeasyui ë°ëª¨íì´ì§ì ì¬ì©ëë cssì -->
+    <link rel="stylesheet" type="text/css" href="/demo/demo.css">
+    <!-- jeasyuiê° jqueryê¸°ë°ì´ë¯ë¡ í¸íì±ì ê²ì¦í ì¤í¬ë¦½í¸ ì½ëë§ ë°ë¡ ëª¨ìë . -->
+    <!-- <script type="text/javascript" src="/js/jquery.min.js"></script> -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+    <!-- 
+    jeasyuiê° jqueryê¸°ë°ì´ë¯ë¡ ìë íì¼ì importíê¸° ì ì ë°ëì jquery.min.js
+       ê° importëì´ ìì´ì¼ í¨. ìì ë°ëì ì§í¬ê². 
+     -->
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		var db_name="ê¹ì ì ";
+		//ìë ¥íë©´ìì ì ì¥ ë²í¼ í´ë¦­íì ë
+		//ì¬ì©ìê° ìë ¥í ì ë³´ë¥¼ ìë²ë¡(Tomcat) ì ì¡í´ì¼ í¨.
+		//get ì¸í°ìí¸ë¥¼ íë¤. ëê°(ë¸ë¼ì°ì ) -> ìë²ë¡ ìì²­ì´ ì ì¡ëì§ ìì.
+		//íë² ìì²­ë íì´ì§ë ê° ì¬ì©ì PCì ê·¸ ë´ì©ì´ ë¤ì´ë¡ë
+		//ë ë²ì§¸ ê°ì íì´ì§ë¥¼ ìì²­íë©´ ìë²ì ì ë¬í ë¤ì ìëµì ë°ìì¤ëê²ì´ ìëë¼
+		// XXX.html?1 ì£¼ìì°½ì ë¤ë¥¸ê¸ìë¥¼ íìë¡ ë¶ì´ë©´ ìë¡ì´ ìì²­ì¼ë¡ ì¸ì
+	    // XXX.html?mem_id=test&mem_pw=123
+		//ë¸ë¼ì°ì ê° ì´ë¦´ ëë§ë¤ ë¤ì´ë² ìë²ì¸¡ìì ëìê² ì¸ììì´ë 		
+		//ì¬ì©ì ì»´í°ì ìë ì ë³´ê° ê·¸ëë¡ ë¤ì ì¶ë ¥ëë¤.
+		//í´ë¼ì´ì¸í¸ì¸¡ì ë¤ì´ë¡ë(html,css,js)
+		//<form>íê·¸ -> method->get(default-ì¸í°ìí¸)|post, action->ì´ ìì²­ì ì²ë¦¬í´ì¤ íì´ì§ë¥¼
+		function add(){
+			$("#f_add").submit();//ì ì¡. ì´ëë¡ ê°ëê±°ì§?, ì ì¡ë°©ì?
+		}
+		//ìë ¥íë©´ìì ì·¨ì ë²í¼ í´ë¦­íì ë
+		function cancel(){
+			
+		}
+		//ìë ¥ ë¤ì´ì¼ë¡ê·¸ì°½ ì´ê¸°
+		function addForm(){
+			$('#dlg_add').dialog('open');
+		}
+		//ìì  ë¤ì´ì¼ë¡ê·¸ì°½ ì´ê¸°
+		function updForm(){
+			var row = $("#dg_member").datagrid("getSelected");
+			//datagridì´ê¸°íì ìë¬¸ìë¡ ìì±íìì¼ë¯ë¡ ë°ëì ìë¬¸ìë¡ ì ê·¼í´ì¼ í¨.
+			//ë§ì¼ ëë¬¸ìë¡ ìì±íë©´ undefine
+			var c_id = row.id; 
+			//alert(c_id);
+			//í°ìº£ ìë²ë¡ ì´ ìì´ëì ê°ì ìì¸ì ë³´ë¥¼ ì¡°ííë©´ íë©´ì ì¶ë ¥í´ì¼í¨.
+			location.href="./memberUpdateForm.jsp?id="+c_id;
+		}		
+		//ì´ë¦ì¼ë¡ ê²ìíê¸°
+		function nameSearch(){
+			alert("nameSearchí¸ì¶ ì±ê³µ");
+		}
+		//ë¡ê·¸ì¸ ìì²­ì êµ¬í
+		function loginAction(){
+			//front-endì¸ì´ë ì¤ë¼í´ ìë²ì ì°ëí  ì ìë¤. - ììì²ë¦¬íë¤.
+			var db_id = "test";
+			var db_pw = "123";
+			var u_id = $("#tb_id").val();
+			var u_pw = $("#tb_pw").val();
+			if(db_id==u_id){//ìì´ëê° ì¡´ì¬íë
+				if(db_pw==u_pw){//ë¹ë²ê¹ì§ ê°ìê±°ì¼? ë¤
+					//ë¡ê·¸ì¸í¼ ì¨ê¸°ê³  ëì  ë¡ê·¸ì¸ ì±ê³µíë©´ show
+					$("#d_login").hide();
+					$("#d_logout").show();
+					//spaníê·¸ì ë©ìì§ë¥¼ ì¶ê°  - ê¹ì ì ë íìí©ëë¤.
+					$("#s_msg").html("<b>"+db_name+"</b>ë íìí©ëë¤.");
+				}
+				else{//ë¹ë²ì´ íë¦°ê±° ê°ì
+					alert("ë¹ë²ì´ íë ¸ìµëë¤.");
+					$("#tb_pw").textbox('setValue','');
+				}
+			}
+			else{//ìì´ëê° ì¡´ì¬íì§ ìì
+				alert("ìì´ëê° ììµëë¤.");
+			}
+		}
+		//ë¡ê·¸ìì ìì²­ì êµ¬í
+		function logoutAction(){
+			$("#d_logout").hide();
+			$("#d_login").show();
+			$("#tb_id").textbox('setValue','');
+			$("#tb_pw").textbox('setValue','');
+			
+		}
+		function getRowIndex(target){
+			var tr = $(target).closest('tr.datagrid-row');
+			return parseInt(tr.attr('datagrid-row-index'));
+		}
+		function editrow(target){
+			alert("editrowí¸ì¶ì±ê³µ : "+target);//Object
+			$("#dg_emp").datagrid("beginEdit",getRowIndex(target));
+		}
+		function deleterow(target){
+			alert("deleterowí¸ì¶ì±ê³µ : "+target);//Object
+			$.messager.confirm('Confirm','ì ë§ ì­ì íìê² ìµëê¹?',function(r){
+			    if (r){
+			    	var vdeptnos="";//10,20,30
+			    	var deptnoArr=[];//ë°°ì´ ì ì¸
+			        //alert('ok');
+			        //datagridìì±ì ìì ì¢ì¤ê´í¸ ì°ì¤ê´í¸ë íììë¤. ìëë©´ ì¤íë¬¸ íììì¼ëê¹....
+			        var rows = $("#dg_emp").datagrid('getSelections');//ìì±ë¤ì sê° ìì¼ë©´ ë°°ì´ì´ë ë³µìí
+			        //var array = new Array();
+			        if(rows==null){
+			        	alert("ì­ì í  ì¬ìì ì ííì¸ì.");
+			        	return;//deleterowí¨ìë¥¼ íì¶
+			        }
+			        //DELETE FROM emp WHERE deptno IN(10,20,30);
+			        for(var i=0;i<rows.length;i++){
+			        	//alert(rows[i].empno);
+			        	deptnoArr.push(rows[i].deptno);
+			        }
+			        for(var i=0;i<rows.length;i++){
+			      		if(i==rows.length-1){
+			      			vdeptnos+= deptnoArr[i];
+			      		}
+			      		else{
+			      			vdeptnos+= deptnoArr[i]+",";
+			      		}
+			        }
+			        location.href="empDelete.jsp?deptnos="+vdeptnos;
+			    }
+			});			
+		}
+		function saverow(target){
+			alert("saverowí¸ì¶ì±ê³µ : "+target);//Object
+		}
+		function cancelrow(target){
+			//alert("cancelrowí¸ì¶ì±ê³µ : "+target);//Object
+			$("#dg_emp").datagrid('cancelEdit',getRowIndex(target));
+		}		
+		//íì´ì§ë¤ì´ììì íì´ì§ ì´ë ë²í¼ì í´ë¦­íìë ì¤ë¼í´ ìë²ìì ì¡°íí ê²°ê³¼ë¥¼ ì¶ë ¥í ê².
+		function pageMove(pageNumber, pageSize){
+			$("#dg_emp").datagrid({
+/*
+SELECT
+       a.rno, a.emp_name
+  FROM (SELECT rownum rno, emp_name FROM temp) a
+ WHERE a.rno >=:s AND a.rno <=:e  
+ íë©´ìì ì¬ì©ìê° ë³´ê³ ì íë íì´ì§ì ëí ì ë³´ë¥¼ ìë°ì½ëì ì ë¬(íì´ì§ì, ì¬ì©ìê° ë³´ê³ ì¶ì íì´ì§)í´ì¼ í¨.
+ í°ìº£ìë²ìê² ì ë¬í´ì¼ í¨.
+ íë¼ë¯¸í°ë¡ ëê²¨ë°ì ê°ì íì©íì¬ startê°ê³¼ endê°ì ê³ì°í´ì¼ í¨.
+ startê° ê³ì°íê¸°
+ start = ((page-1)*pageSize)+1 ;
+ 
+ end = page*pageSize;
+ 
+ if(end>total){
+	end = total;
+ }else{
+	end = end;
+ }
+ 
+ 1   11  21 31  41
+                46
+ 10  20  30 40
+*/
+				url:'./getEmpList2.jsp?pageNumber='+pageNumber+"&pageSize="+pageSize
+			   ,onDblClickCell:function(index,field,value){
+				   alert("ëë¸í´ë¦­");
+			   }
+			});
+		}
+	</script>
+</head>
+<body>
+	<style>
+		#d_login {
+		    /*border: 1px solid red;*/
+			width: 190px;
+			height: 110px;
+		}
+	</style>
+	<script type="text/javascript">
+	//ë ì§ í¬ë§· íìì ëí´í¸ìì ì¬ì©ì ì ìë¡ ë³ê²½íë¯ë¡
+	//bodyíê·¸ ìì í´ë¹ ì½¤í¬ëí¸ê° ì ìëê¸° ì ì ì²ë¦¬í¨.
+		//dateboxì ëí ë ì§ í¬ë§· ì¬ì ìí¨.
+		$.fn.datebox.defaults.formatter = function(date){
+			var y = date.getFullYear();
+			var m = date.getMonth()+1;
+			var d = date.getDate();
+			return y+'-'+(m<10 ? "0"+m:m)+'-'+(d<10 ? "0"+d:d);
+		}	
+		//dateboxì ë ì§ í¬ë§·ì ì ì©í¨.
+		$.fn.datebox.defaults.parser = function(s){
+			var t = Date.parse(s);
+			if (!isNaN(t)){
+				return new Date(t);
+			} else {
+				return new Date();
+			}
+		}	
+		$(document).ready(function (){
+			/* íìê´ë¦¬ì íìí ë°ì´í°ê·¸ë¦¬ë ì¶ê°  - ì¤ì */
+			$("#dg_member").datagrid({
+			    columns:[[
+					{field:'id', title:'ìì´ë', width:100}/* ìì´ë */
+				   ,{field:'name', title:'ì´ë¦', width:120}/* ì´ë¦ */
+				   ,{field:'address', title:'ì£¼ì', width:300}/* ì£¼ì */
+				   ,{field:'hp', title:'H.P', width:140}/* HP */
+				]]
+				,singleSelect:'true'
+				,toolbar:'#tbar_member'
+				//,url:'./jsonMember.json'
+				,data: [
+					     {id:"test", name:"ê¹ì ì ",address:"ìì¸ì ë§í¬êµ¬ ê³µëë",   hp:"010-222-2256"}
+				        ,{id:"apple",name:"ì´ìì ",address:"ìì¸ì ê¸ì²êµ¬ ê°ì°ë",   hp:"010-333-1477"}
+				        ,{id:"haha", name:"ì´ì±ê³",address:"ìì¸ì ìë±í¬êµ¬ ìë±í¬ë", hp:"010-211-5588"}
+				       ]
+				
+			});//////////////end of dg_member
+			/* ì¬ìê´ë¦¬ì íìí ë°ì´í°ê·¸ë¦¬ë ì¶ê°  - ì¤ì */
+			$("#dg_emp").datagrid({
+				 url:'jsonEmp.json'
+				,singleSelect:'true'
+				,toolbar:'#tbar_emp'
+				,pagination:'true'
+				//ë°ì´í°ê·¸ë¦¬ëì urlì ë³´ë¥¼íµí´ì ì½ì´ë¤ì¸ ë°ì´í°ê° ì ì©ëìì ë
+				,onLoadSuccess:function(data){
+					$("#pn_emp").pagination({
+						total:data.total
+					});
+				}
+			    ,onEndEdit:function(index,row){
+                	var ed = $(this).datagird('getEditor',{
+                				index:index
+                	         });
+	             }
+			    ,onBeforeEdit:function(index,row){
+                	row.editing = true;
+                	$(this).datagrid('refreshRow',index);
+	             }
+			    ,onAfterEdit:function(index,row){
+                	row.editing = false;
+                	$(this).datagrid('refreshRow',index);
+	             }
+			     ,onCancelEdit:function(index,row){
+                	row.editing = false;
+                	$(this).datagrid('refreshRow',index);
+	             }		
+			});//////////////end of dg_emp
+///////////////////////// íì´ì§ ë¤ì´ì ì¶ê°í´ ë³´ê¸° ////////////////////////	
+/*             $("#dg_emp").datagrid('getPager').pagination({
+            	layout:['list','sep','first','prev','links','next','last','sep','refresh']
+        	}); */
+///////////////////////// íì´ì§ ë¤ì´ì ì¶ê°í´ ë³´ê¸° ////////////////////////			
+ 			$("#pn_emp").pagination({
+				pageList: [1,2,3]
+ 			   ,pageSize: 1
+               ,showPageList: true
+               ,showRefresh: false
+               //,displayMsg: ''
+               ,onSelectPage: function(pageNumber, pageSize){
+               		//alert(pageNumber+", "+pageSize);   
+            	   pageMove(pageNumber,pageSize);//DBê²½ì í´ì¼í¨.
+               }
+			});
+//ì¸ê° íì´ì§(íìê´ë¦¬,DVDê´ë¦¬,ëì¬ê´ë¦¬) ì¨ê¹ ì²ë¦¬íê¸°			
+			$("#d_member").hide();
+			$("#d_dvd").hide();
+			$("#d_rental").hide();	
+			//ë¡ê·¸ì¸ ì±ê³µíì ë íë©´ì ì¨ê¸°ì
+			$("#d_logout").hide();
+//easyuiìì ì ê³µíë treeê°ì²´ì onClickì´ë²¤í¸ ì²ë¦¬íê¸° ìì			
+			$('#te_menu').tree({//ë°ë¡ í¨ì ì ì¸íì§ ìê³  ì¦ì ì²ë¦¬
+				//íë¼ë¯¸í°ë¡ ëì´ì¤ë nodeë ì¬ì©ìê° ì íí ìë¦¬ë¨¼í¸ ì ë³´ ê°ì§
+				onClick: function(node){//í¸ë¦¬ë©ë´ ì ííìë ì´ë²¤í¸ ì²ë¦¬
+					//alert(node.text);  // alert node text property when clicked
+					//node.textíë©´ ì íí ë¸ëë¬¸ìì´ ê°ì ¸ì´.
+					if("íìê´ë¦¬"==node.text){//ë íìê´ë¦¬ ëë¥¸ê±°ì¼?
+						//alert("11");
+					//showë©ìë í¸ì¶íë©´ íë©´ì ì¶ë ¥ëê³ 
+					//hideë©ìë í¸ì¶íë©´ íë©´ì ì¨ê¹ ì²ë¦¬ë¨.
+						$("#d_member").show();
+						$("#d_emp").hide();
+						$("#d_dvd").hide();
+						$("#d_rental").hide();
+					}
+					else if("ì¬ìê´ë¦¬"==node.text){
+						//alert("22");
+						$("#d_emp").show();
+						$("#d_member").hide();
+						$("#d_dvd").hide();
+						$("#d_dvd").hide();
+						$("#d_rental").hide();						
+					}
+					else if("DVDê´ë¦¬"==node.text){
+						//alert("22");
+						$("#d_member").hide();
+						$("#d_emp").hide();
+						$("#d_dvd").show();
+						$("#d_rental").hide();						
+					}
+					else if("ëì¬ê´ë¦¬"==node.text){
+						//alert("33");
+						$("#d_member").hide();
+						$("#d_emp").hide();
+						$("#d_dvd").hide();
+						$("#d_rental").show();						
+					}
+				}
+			});//////////////end of tree
+
+		});//////////////////end of ready DOMêµ¬ì±ì´ ëë¬ì ë
+	</script>
+    <div id="cc" class="easyui-layout" style="width:950px;height:550px;">
+        <div data-options="region:'west',split:true" title="ì½ë©ëì´" style="width:200px;">
+		<!-- ì¬ë°±ì ì£¼ê¸° ìí´ -->
+		<div style="margin:10px 0;"></div>
+<!--============= ë¡ê·¸ì¸ íë©´ ì²ë¦¬ ìì =============-->		
+		<div id="d_login" align="center">
+			<input id="tb_id" name="mem_id">	
+			 <div style="margin:5px 0;"></div>
+			<input id="tb_pw" name="mem_pw">
+			 <div style="margin:5px 0;"></div>
+			<a href="javascript:loginAction()" class="easyui-linkbutton">ë¡ê·¸ì¸</a>	
+			<a href="javascript:memberAction()" class="easyui-linkbutton">íìê°ì</a>	
+			<div id="naver_id_login" style="margin-bottom:30px"></div>
+			<script type="text/javascript">
+				var naver_id_login = new naver_id_login("ik_9iwk0aCNEp85yIYA5", "http://localhost:8000/ajax/index_ajax.html");
+				var state = naver_id_login.getUniqState();
+				naver_id_login.setButton("green", 3,40);
+				naver_id_login.setDomain("http://localhost:8000/easyui_layout/layout_1.html");
+				naver_id_login.setState(state);
+				naver_id_login.setPopup();
+				naver_id_login.init_naver_id_login();
+			</script>  				
+			<script type="text/javascript">
+			$('#tb_id').textbox({
+			    iconCls:'icon-man',
+			    iconAlign:'right',
+			    prompt:'ìì´ë'
+			})
+			$('#tb_pw').textbox({
+			    iconCls:'icon-lock',
+			    iconAlign:'right',
+			    prompt:'ë¹ë°ë²í¸'
+			})
+			</script>	
+		</div><!-- 110px -->
+<!--============= ë¡ê·¸ì¸ íë©´ ì²ë¦¬ ë =============-->		
+<!--============= ë¡ê·¸ìì íë©´ ì²ë¦¬ ìì =============-->		
+		<div id="d_logout" align="center">
+			<span id="s_msg">ã¹íí¸</span>
+			 <div style="margin:5px 0;"></div>
+			<a href="javascript:logoutAction()" class="easyui-linkbutton">ë¡ê·¸ìì</a>	
+			<a href="javascript:memberUpdate()" class="easyui-linkbutton">ì ë³´ìì </a>				
+		</div>	
+<!--============= ë¡ê·¸ìì íë©´ ì²ë¦¬ ë =============-->		
+<!--============== ë©ë´ í¸ë¦¬ ìì =============--> 
+        <ul id="te_menu" class="easyui-tree">
+	        <li data-options="state:'closed'">
+	            <span>íìê´ë¦¬</span>
+	            <ul>
+	                <li>
+	                    <span>íìëª©ë¡</span>
+	                </li>
+	                <li>
+	                    <span>íìë±ë¡</span>
+	                </li>
+	                <li>
+	                    <span>íììì </span>
+	                </li>
+	                <li>
+	                    <span>íìì­ì </span>
+	                </li>
+	            </ul>
+	        </li>
+	        <li data-options="state:'closed'">
+				<span>ì¬ìê´ë¦¬</span>
+				<ul>
+					<li>
+						<span>ì¬ìëª©ë¡</span>
+					</li>
+					<li>
+						<span>ì¬ìë±ë¡</span>
+					</li>
+					<li>
+						<span>ì¬ììì </span>
+					</li>
+					<li>
+						<span>ì¬ìì­ì </span>
+					</li>
+				</ul>
+			</li>
+	        <li data-options="state:'closed'">
+	            <span>DVDê´ë¦¬</span>
+	            <ul>
+	                <li>
+	                    <span>DVDëª©ë¡</span>
+	                </li>
+	                <li>
+	                    <span>DVDë±ë¡</span>
+	                </li>
+	                <li>
+	                    <span>DVDìì </span>
+	                </li>
+	                <li>
+	                    <span>DVDì­ì </span>
+	                </li>
+	            </ul>
+	        </li>
+	        <li data-options="state:'closed'">
+	            <span>ëì¬ê´ë¦¬</span>
+	            <ul>
+	                <li>
+	                    <span>ëì¬ëª©ë¡</span>
+	                </li>
+	                <li>
+	                    <span>ëì¬ë±ë¡</span>
+	                </li>
+	                <li>
+	                    <span>ëì¬ìì </span>
+	                </li>
+	                <li>
+	                    <span>ëì¬ì­ì </span>
+	                </li>
+	            </ul>
+	        </li>
+        </ul>
+<!--============== ë©ë´ í¸ë¦¬  ë =============--> 
+        </div>
+        <div data-options="region:'center',title:'DVDê´ë¦¬ìì¤í'">
+		<!-- íìê´ë¦¬ -->
+		     <div style="margin:10px 0;"></div>
+<!-- 
+================================================================
+	íì ê´ë¦¬ íì´ì§ êµ¬í
+================================================================
+ -->		     
+		     <div id="d_member">
+		     Home - íìê´ë¦¬ 
+		        <div style="margin:10px 0;"></div>
+				<table title="íìëª©ë¡" id="dg_member" width="700px" height="450px" class="easyui-datagrid">				
+				</table>
+<!--============== íìê´ë¦¬íë©´ì íìí í´ë° ìì ==============-->
+				<div id="tbar_member">
+				<table align='left' width="100%">
+					<!-- ì¡°ê±´ ê²ì ì¶ê° -->
+					<tr>
+						<td>
+						<label>ì´ë¦ : </label>
+						<input class="easyui-searchbox" data-options="prompt:'ì´ë¦ì ìë ¥íì¸ì.',searcher:nameSearch" style="width:140px;">
+						&nbsp;&nbsp;&nbsp;
+						<label>H.P : </label>
+						<input class="easyui-maskedbox" mask="999-9999-9999" style="width:140px;"> 
+						<label>ìëìì¼ : </label>
+						<input class="easyui-datebox" style="width:140;">
+						</td>
+					</tr>
+					<!-- í´ë° ë²í¼ ì¶ê° -->
+					<tr>
+						<td style="padding:2px 5px;">
+        				<a href="#" class="easyui-linkbutton" iconCls="icon-search" plain="true">ì¡°í</a>
+				        <a href="javascript:addForm()" class="easyui-linkbutton" iconCls="icon-add" plain="true">ìë ¥</a>
+				        <a href="javascript:updForm()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">ìì </a>
+				        <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true">ì­ì </a>
+						</td>
+					</tr>
+				</table>
+				</div>
+<!--============== íìê´ë¦¬íë©´ì íìí í´ë°   ë ==============-->   
+<!--
+	============== íìì ë³´ ë±ë¡ íë©´ ìì  ==============
+    easyuiìì ì ê³µíë APIíì©ì ì£¼ììì±
+    idë¥¼ íµí´ì ìë°ì¤í¬ë¦½í¸ë¡ ì´ë²¤í¸ ì²ë¦¬íê±°ë ìµì ì¶ê° ë± ê¸°ë¥ì²ë¦¬ê° ì´ë£¨ì´ì§
+        í´ë¹ ì½¤í¬ëí¸ì ëí ìì¸ ìì±ë¤ì data-optionsì ì¶ê°íë©´ ë¨
+        ìë°ì¤í¬ë¦½í¸ ììë ìì±ì ì¶ê°íê±°ë ë³ê²½í  ì ìì. - ë°©ë²íì¸í´ ë ê².
+        íê·¸ ììì ìì± ì¶ê°ì ëë¸ ì¿¼íì´ì ì¼ë¡ ë¬¶ì´ì£¼ê³  ìì±ê³¼ ê°ì ë°ë¡ ë¶ë¦¬íë 
+        ê¸°í¸ë : ì½ë¡ ì ì¬ì©í¨.
+        íê·¸ ë§ë¤ ì¤íì¼ìì±ì ë°ë¡ ì²ë¦¬í  ëë styleìì±ì ê° ìë¦¬ì ìì±ëªê³¼ ê°ì ì£¼ë©´ ë¨.
+        ì ê³µëë ì½¤í¼ëí¸ë¤ì ëª¨ë ìë°ì¤í¬ë¦½í¸ ì½ëë¡ë íë©´ ì²ë¦¬ ê°ë¥í¨.
+    2ê°ì§ ë°©ë²ì ëí´ìë í¼ìì ë°ëì í´ë³¼ê².
+        ì¸ë¶ì CSS ì¬ì©ë³´ë¤ë ê° íê·¸ ë´ì ìë styleìì±ì´ ì°ì íì¬ ì ì©ë¨.     
+--> 
+				<div id="dlg_add" data-options="footer:'#tbar_add', closed:true, cache:false" class="easyui-dialog" title="íìë±ë¡" style="width:600px;height:350px;padding:10px">
+					<form id="f_add" method="get" action="memberAdd.jsp">	
+						<table>
+							<tr>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+							</tr>	
+							<tr>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+							</tr>																												
+						</table>
+				    </form>
+				</div>
+				<div id="tbar_add">
+				<a href="javascript:add()" class="easyui-linkbutton" iconCls="icon-ok" plain="true">ì ì¥</a>
+				<a href="javascript:cancel()" class="easyui-linkbutton" iconCls="icon-cancel" plain="true">ì·¨ì</a>
+				</div>
+<!--============== íìì ë³´ ë±ë¡ íë©´  ë    ==============-->   
+<!--============== íìì ë³´ ìì  íë©´ ìì  ==============--> 
+<!--============== íìì ë³´ ìì  íë©´  ë    ==============--> 
+<!--============== íìì ë³´ ì­ì  íë©´ ìì  ==============--> 
+<!--============== íìì ë³´ ì­ì  íë©´  ë    ==============-->    
+		     </div>   
+<!-- 
+================================================================
+	íì ê´ë¦¬ íì´ì§ êµ¬í
+================================================================
+ -->	
+<!-- 
+================================================================
+	ì¬ì ê´ë¦¬ íì´ì§ êµ¬í
+================================================================
+ -->		     
+		     <div id="d_emp">
+		     Home - ì¬ìê´ë¦¬ 
+		        <div style="margin:10px 0;"></div>
+				<table title="ì¬ìëª©ë¡" id="dg_emp" width="700px" height="450px" class="easyui-datagrid">
+					<thead>
+				      <tr>
+		                <th data-options="field:'empno',width:80">ì¬ìë²í¸</th>
+		                <!-- valueFieldë ìë²ì ëê¸¸ ê°ì´ë¯ë¡ ë¶ìë²í¸ë¥¼
+		                     textFieldë íë©´ì ì¶ë ¥í  ê°ì´ë¯ë¡  ë¶ìëªì
+		                 -->
+		                <th data-options="field:'deptno',width:100,
+		                        formatter:function(value,row){
+		                            return row.deptno;
+		                        },
+		                        editor:{
+		                            type:'combobox',
+		                            options:{
+		                                valueField:'deptno',
+		                                textField:'dname',
+		                                method:'get',
+		                                url:'../easyui_layout/jsonDept.json',
+		                                required:true
+		                            }
+		                        }">ë¶ìëª</th>
+		                <th data-options="field:'hiredate',width:120,align:'right',editor:{type:'text'}">ìì¬ì¼ì</th>
+		                <th data-options="field:'ename',width:80,align:'right',editor:{type:'text'}">ì¬ìëª</th>
+		                <th data-options="field:'Action', width:100, align:'center',
+		                	formatter:function(value,row,index){
+		                		if(row.editing){
+		                			var s='<a href=# onclick=saverow(this)>Save</a>';
+		                			var c='<a href=# onclick=cancelrow(this)>Cancel</a>';
+		                			return s+' '+c;	
+		                		}
+		                		else{
+		                 			var e='<a href=# onclick=editrow(this)>Edit</a>';
+		                			var d='<a href=# onclick=deleterow(this)>Delete</a>';
+		                			return e+' '+d;	               		
+		                		}
+		                	}
+		                ">Action</th>
+				            </tr>						
+					</thead>
+				</table>
+ 				<table id="pn_emp" class="easyui-pagination" width="700px" height="30px" style="background:#efefef;border:1px solid #ccc;">
+				</table>
+<!--============== íìê´ë¦¬íë©´ì íìí í´ë° ìì ==============-->
+				<div id="tbar_emp">
+				<table align='left' width="100%">
+					<!-- ì¡°ê±´ ê²ì ì¶ê° -->
+					<tr>
+						<td>
+						<label>ì´ë¦ : </label>
+						<input class="easyui-searchbox" data-options="prompt:'ì´ë¦ì ìë ¥íì¸ì.',searcher:nameSearch" style="width:140px;">
+						&nbsp;&nbsp;&nbsp;
+						<label>H.P : </label>
+						<input class="easyui-maskedbox" mask="999-9999-9999" style="width:140px;"> 
+						<label>ìëìì¼ : </label>
+						<input class="easyui-datebox" style="width:140;">
+						</td>
+					</tr>
+					<!-- í´ë° ë²í¼ ì¶ê° -->
+					<tr>
+						<td style="padding:2px 5px;">
+        				<a href="#" class="easyui-linkbutton" iconCls="icon-search" plain="true">ì¡°í</a>
+				        <a href="javascript:addForm()" class="easyui-linkbutton" iconCls="icon-add" plain="true">ìë ¥</a>
+				        <a href="javascript:updForm()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">ìì </a>
+				        <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true">ì­ì </a>
+						</td>
+					</tr>
+				</table>
+				</div>
+<!--============== íìê´ë¦¬íë©´ì íìí í´ë°   ë ==============-->   
+<!--============== íìì ë³´ ë±ë¡ íë©´  ë    ==============-->   
+<!--============== íìì ë³´ ìì  íë©´ ìì  ==============--> 
+<!--============== íìì ë³´ ìì  íë©´  ë    ==============--> 
+<!--============== íìì ë³´ ì­ì  íë©´ ìì  ==============--> 
+<!--============== íìì ë³´ ì­ì  íë©´  ë    ==============-->    
+		     </div>   
+<!-- 
+================================================================
+	íì ê´ë¦¬ íì´ì§ êµ¬í
+================================================================
+ -->	 			
+		<!-- DVDê´ë¦¬ -->
+		     <div id="d_dvd">DVD</div>   
+		<!-- ëì¬ê´ë¦¬ -->        
+		     <div id="d_rental">ëì¬</div>   
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

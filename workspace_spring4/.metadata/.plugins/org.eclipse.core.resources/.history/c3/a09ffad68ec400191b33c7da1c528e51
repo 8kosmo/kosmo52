@@ -1,0 +1,16 @@
+package com.test;
+
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
+
+public class MemberController extends MultiActionController {
+	public MemberLogic memberLogic = null;
+	public void setMemberLogic(MemberLogic memberLogic) {
+		this.memberLogic = memberLogic;
+	}
+	public ModelAndView memberList() {
+		ModelAndView mav = new ModelAndView();
+		memberLogic.memberList();
+		return mav;
+	}
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 반응형웹 -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>네비게이션 생성</title>
+<link rel="stylesheet" href="../css/bootstrap.css?1">
+</head>
+<body>
+<!--============= [[네비게이션]] =============-->
+	<nav>
+		<div class="container-fluid">
+  			<div class="navbar-header"><!-- 사이트제목 -->
+				<a href="#">김유신 수업노트</a>
+			</div>
+        </div>
+	</nav>
+<!--============= [[점보트론]] =============-->
+
+
+<!--============= [[ 콘텐츠 ]] ==============-->
+
+
+<!--============= [[ 푸터 ]] ==============-->
+</body>
+</html>

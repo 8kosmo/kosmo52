@@ -1,0 +1,34 @@
+package com.mvc1;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+
+public class TestLogic {
+	Logger logger = Logger.getLogger(TestLogic.class);
+	TestDao tDao = new TestDao();
+	public List<Map<String,Object>> subjectList(){
+		logger.info("subjectList 호출 성공");
+		List<Map<String,Object>> subList = null;
+		subList  = tDao.subjectList();
+		return subList;
+	}
+	public int examReceipt(Map<String, Object> pMap) {
+		logger.info("examReceipt호출 성공");
+		int result = 0;
+		String exam_no = "0";//수험번호 채번하여 담기
+		exam_no = tDao.getExamNo();
+		pMap.put("exam_no",exam_no);
+		//시험 응시 접수 처리
+		result = tDao.exeamReceipt(pMap);
+		return result;
+	}
+}
+
+
+
+
+
+
+

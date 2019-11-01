@@ -1,0 +1,24 @@
+package com.ch3;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+public class PetServlet extends HttpServlet {
+	Logger logger = Logger.getLogger(PetServlet.class);
+	public void service(HttpServletRequest req, HttpServletResponse res)
+	throws ServletException{
+		
+	}
+	public void doGet(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException{
+		service(req,res);
+	}
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException{
+		service(req,res);
+	}
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>basic datagrid</title>
+    <link rel="stylesheet" type="text/css" href="/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/demo/demo.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <table class="easyui-datagrid" title="대화명" style="width:700px;height:250px"
+            data-options="singleSelect:true,collapsible:true,url:'./chatList.json',method:'get'">
+        <thead>
+            <tr>
+                <th data-options="field:'nickName',width:130">닉네임</th>
+                <th data-options="field:'age',width:100">나이</th>
+            </tr>
+        </thead>
+    </table>
+</body>
+</html>

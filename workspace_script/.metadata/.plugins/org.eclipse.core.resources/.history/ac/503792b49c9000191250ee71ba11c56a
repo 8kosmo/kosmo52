@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM-속성처리</title>
+</head>
+<body>
+<!-- document.write()역할,기능, 왜? -->
+<script type="text/javascript">
+	window.onload = function(){
+		var img = document.createElement("img");
+		//속성 추가(지정) setAttribute([1],[2])
+		img.setAttribute("src","../images/hu.jpg");
+	}
+</script>
+11
+<img src="XXX.jpg" width="300" heigh="200">
+</body>
+</html>

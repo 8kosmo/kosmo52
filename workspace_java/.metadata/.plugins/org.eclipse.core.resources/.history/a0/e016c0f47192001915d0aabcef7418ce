@@ -1,0 +1,12 @@
+package com.ch14;
+
+public class Exception_1 {
+	void methodA() {
+		System.out.println("methodA 호출");
+	}
+	public static void main(String[] args) {
+		Exception_1 exc1 = null;
+		
+	}
+
+}

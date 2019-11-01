@@ -1,0 +1,40 @@
+package com.mvc2;
+
+import org.apache.log4j.Logger;
+
+import com.vo.BoardMasterVO;
+import com.vo.BoardSubVO;
+
+public class BoardDao {
+	Logger logger = Logger.getLogger(BoardDao.class);
+	public int boardSAdd(BoardSubVO bsVO) {
+		logger.info("boardSAdd 호출 성공");
+		return 0;
+	}
+	public int boardMAdd(BoardMasterVO bmVO) {
+		logger.info("boardMAdd 호출 성공");
+		return 0;
+	}
+	public int boardSUpd(BoardSubVO bsVO) {
+		logger.info("boardSUpd 호출 성공");
+		return 0;
+	}
+	public int boardMUpd(BoardMasterVO bmVO) {
+		logger.info("boardMUpd 호출 성공");
+		return 0;
+	}
+	public int boardSDel(BoardSubVO bsVO) {
+		logger.info("boardSDel 호출 성공");
+		return 0;
+	}
+	public int boardMDel(BoardMasterVO bmVO) {
+		logger.info("boardSDel 호출 성공");
+		return 0;
+	}
+	public int getTotal() {
+		int tot = 0;
+		
+		return tot;
+	}
+
+}

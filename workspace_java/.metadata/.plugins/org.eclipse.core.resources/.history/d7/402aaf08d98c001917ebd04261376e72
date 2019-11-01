@@ -1,0 +1,38 @@
+package com.address;
+
+import java.util.List;
+
+public class AddressBookDao implements AddressBookInterface {
+
+	@Override
+	public AddressVO getAddressDetail(AddressVO paVO) {
+		System.out.println("DAO getAddressDetail호출 성공");
+		return null;
+	}
+
+	@Override
+	public AddressVO addresssInsert(AddressVO paVO) {
+		System.out.println("DAO addresssInsert호출 성공");
+		
+		return null;
+	}
+
+	@Override
+	public AddressVO addresssUpdate(AddressVO paVO) {
+		System.out.println("DAO addresssUpdate호출 성공");
+		return null;
+	}
+
+	@Override
+	public AddressVO addresssDelete(AddressVO paVO) {
+		System.out.println("DAO addresssDelete호출 성공");
+		return null;
+	}
+
+	@Override
+	public List<AddressVO> getAddress(AddressVO paVO) {
+		System.out.println("DAO getAddress호출 성공");
+		return null;
+	}
+
+}

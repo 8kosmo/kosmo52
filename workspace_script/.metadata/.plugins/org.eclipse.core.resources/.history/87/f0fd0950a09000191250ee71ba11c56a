@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM-textContent</title>
+</head>
+<body>
+<script type="text/javascript">
+	window.onload = function(){//익명함수
+		
+	}
+</script>
+</body>
+</html>

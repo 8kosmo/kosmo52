@@ -1,0 +1,22 @@
+package com.erp;
+
+import org.apache.log4j.Logger;
+import org.springframework.dao.DataAccessException;
+
+import com.vo.DeptVO;
+import com.vo.EmpVO;
+
+public class DeptDao {
+
+	Logger logger = Logger.getLogger(DeptDao.class);
+	public void deptInsert(Object object) {
+		logger.info("deptInsert 호출 성공");
+	}
+	public void deptInsert(DeptVO dVO) throws DataAccessException{
+		logger.info("deptInsert 호출 성공");
+		dVO = new DeptVO();
+		dVO.setDeptno(61);
+		dVO.setDname("개발3팀");
+		sqlSessionTemplate.insert("deptInsert", eVO);
+	}
+}

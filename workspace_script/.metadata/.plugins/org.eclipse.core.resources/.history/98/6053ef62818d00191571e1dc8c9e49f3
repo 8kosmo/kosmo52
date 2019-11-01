@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>배열</title>
+</head>
+<body>
+<script>
+    var days = ["월요일","화요일","수요일"
+               ,"목요일","금요일","토요일","일요일"];
+    for(var i=0;i<days.length;i++){
+        document.write(days[i],"<br>");
+    }
+    var result =[
+    				["김유신","이순신","이성계"]
+    			   ,["오라클","자바","HTML5"]
+    			   ,[80,90,70]	
+    			];
+    for(var i=0;i<result.length;i++){
+    	for(var j=0;j<result[i].length;j++){
+    		document.write("result[",i,"][",j,"]",result[i][j],"<br>");
+    	}
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

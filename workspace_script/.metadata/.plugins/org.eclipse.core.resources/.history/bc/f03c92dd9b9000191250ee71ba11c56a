@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM-속성처리</title>
+</head>
+<body>
+<!-- document.write()역할,기능, 왜? -->
+<script type="text/javascript">
+	window.onload = function(){
+	
+	}
+</script>
+</body>
+</html>

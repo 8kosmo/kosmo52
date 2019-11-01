@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="com.mvc1.MemberDao, com.vo.MemberVO" %>    
+<%@ page import="java.util.ArrayList" %>    
+<%
+	MemberDao mDao = new MemberDao();
+	MemberVO mVO = new MemberVO();
+	Map<String,Object> pMap = new HashMap<>();
+	mDao.my_proc2(pMap);
+	out.print("<br>");
+	//ArrayList 안에는 어떤 타입이 들어있지? MemberVO
+	List list = pMap.get(0);
+ 	Iterator iter = list.iterator();
+	while(iter.hasNext()){
+		
+		//out.print(mVO.getMem_id()+" , "+mVO.getMem_name()+" , "+mVO.getMem_pw());
+		
+	}
+/* 	if(mVO.getKey().getClass()){
+		
+	}else{
+		
+	} */
+%>
+
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+package com.mvc1;
+
+public class ActionForward {
+	private String path = null;
+	private boolean isRedirect = false;//true이면 redirect, false이면 forward
+}

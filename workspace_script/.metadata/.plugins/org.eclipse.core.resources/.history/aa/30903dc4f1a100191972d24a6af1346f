@@ -1,0 +1,17 @@
+package naver.captcha;
+
+//네이버 캡차 API 예제 - 키발급
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+public class APIExamCaptchaAll {
+/*
+ * ik_9iwk0aCNEp85yIYA5
+ * br6PPxlpBj
+ */
+ public static void main(String[] args) {
+ }
+ 
+}

@@ -1,0 +1,15 @@
+package com.network1;
+
+public class TalkServerThread extends Thread {
+	TalkServer ts = null;
+	public TalkServerThread(TalkServer ts) {
+		this.ts = ts;
+	}
+	//서버에 접속한 모든 사용자들에게 메시지를 전송 처리함.
+	public void broadCasting(String msg) {//200|누가|누구에게|오늘 스터디할까?
+		
+	}
+	public void run() {
+		
+	}
+}

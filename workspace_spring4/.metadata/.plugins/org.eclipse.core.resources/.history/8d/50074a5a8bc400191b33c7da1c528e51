@@ -1,0 +1,11 @@
+package com.test;
+
+import org.mybatis.spring.SqlSessionTemplate;
+
+public class MemberDao {
+	public SqlSessionTemplate sqlSessionTemplate = null;
+	public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
+		this.sqlSessionTemplate = sqlSessionTemplate;
+	}
+	
+}

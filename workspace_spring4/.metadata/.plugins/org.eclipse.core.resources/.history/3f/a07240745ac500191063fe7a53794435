@@ -1,0 +1,10 @@
+package com.erp;
+
+import org.apache.log4j.Logger;
+
+public class EmpDao {
+	Logger logger = Logger.getLogger(EmpDao.class);
+	public void empInsert(Object object) {
+		logger.info("empInsert 호출 성공");
+	}
+}

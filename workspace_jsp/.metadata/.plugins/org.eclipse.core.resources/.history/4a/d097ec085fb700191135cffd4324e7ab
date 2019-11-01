@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MVC패턴을 적용한 계층형 게시판</title>
+<%@ include file="/common/JEasyUICommon.jsp" %>
+</head>
+<body>
+<!-- 
+======================== [[글목록 화면 시작]] =========================
+JEasyUI의 DataGrid API를 활용하여 작성
+1)익스프레션을 이용해서 화면 처리
+  :tr, td태그를 직접 작성해서 처리하는 방식
+2)json포맷으로 처리해서 매핑
+  :field명만 맞춰주면 자동으로 매핑
+ -->
+ <table id="db_board" class="easyui-datagird" data-options="toolbar:'#tb_board'">
+ </table>
+ <div id="tb_board" style="padding:2px 5px;">
+    <a href="#" class="easyui-linkbutton" iconCls="icon-search" plain="true"></a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true"></a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true"></a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true"></a>
+</div>
+ <!--=================== [[글목록 화면 시작]] =======================-->
+<!--
+======================== [[글쓰기 화면 시작]] =========================
+JEasyUI의 Dialog API를 활용하여 작성
+==================================================================
+-->
+<div id="dlg_boardAdd" class="easyui-dialog"></div>
+<!--======================== [[글쓰기 화면   끝 ]] =====================-->
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,16 @@
+package com.network;
+
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.List;
+
+public class TimeServerVer2 {
+	ServerSocket sSocket = null;
+	Socket socket = null;
+	List<ServerThread> threadList = null;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

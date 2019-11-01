@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/account"
+            android:title="@string/nav_login"
+            android:checked="true"/>
+        <item
+            android:id="@+id/nav_pt"
+            android:icon="@drawable/pt"
+            android:title="@string/nav_pt"/>
+        <item
+            android:id="@+id/nav_spinning"
+            android:icon="@drawable/spinning"
+            android:title="@string/nav_spinning"/>
+        <item
+            android:id="@+id/nav_yoga"
+            android:icon="@drawable/yoga"
+            android:title="@string/nav_yoga"/>
+    </group>
+    <item android:title="@string/nav_support">
+        <menu>
+            <item
+                android:id="@+id/nav_help"
+                android:icon="@drawable/help"
+                android:title="help"/>
+        </menu>
+    </item>
+</menu>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.mapper.BoardMapper">
+	<!-- <resultMap id="mVO" type="com.vo.MemberVO"/> -->		
+	<select id="currentTime" parameterType="int" resultType="java.lang.String"> 
+		select TO_CHAR(sysdate,'YYYY-MM-DD') from dual    
+	</select>
+	<delete id="boardMDel" parameterType="com.vo.BoardMasterVO">
+		delete from board_master2019 where bm_no={bm_no}
+	</delete>
+	<delete id="boardSDel" parameterType="com.vo.BoardMasterVO">
+		delete from board_sub2019 where bm_no={bm_no}
+	</delete>
+	<update id="boardMUpd" parameterType="com.vo.BoardMasterVO">
+		UPDATE board_master2019
+		   SET bm_title = #{bm_title},
+		       bm_writer = #{bm_writer},
+		       bm_content = #{bm_content},
+		       bm_date= TO_CHAR (SYSDATE, 'YYYY-MM-DD'),
+		       bm_pw = #{bm_pw},
+		       bm_email = #{bm_email}
+		 WHERE bm.bm_no = #{bm_no}		
+	</update>
+	<update id="boardSUpd" parameterType="com.vo.BoardSubVO">
+		UPDATE board_sub2019
+		   SET bs_file = #{bs_file},
+		       bs_size = #{bs_size},
+		 WHERE bm_no = #{bm_no}	
+		   AND bs_seq = #{bs_seq}
+	</update>
+	<insert id="boardSAdd" parameterType="com.vo.BoardSubVO">
+              insert into board_sub2019(bm_no,bs_seq,bs_file,bs_size)
+              values(#{bm_no},1,#{bs_file},#{bs_size})
+	</insert>
+	<insert id="boardMAdd" parameterType="com.vo.BoardMasterVO">
+<!-- 		<selectKey id="">
+			select seq_board_no.nextval bno from dual
+		</selectKey> -->
+		insert into board_master2019(bm_no, bm_title, bm_writer, bm_content
+		                           , bm_pw,bm_date, bm_group, bm_pos, bm_step)
+		                       values(seq_board_no.nextval,#{bm_title},#{bm_writer}
+		                              ,#{bm_content},#{bm_pw},to_char(sysdate,'YYYY-MM-DD')
+		                              ,0,0,0
+		                             )       
+	</insert>
+	<select id="boardList" parameterType="com.vo.BoardMasterVO" resultType="map">
+		select bm.bm_title,bm.bm_date,bm.bm_hit
+              ,bs.bs_file, bm.bm_writer 
+          from  board_master2019 bm,board_sub2019 bs 
+         where bm.bm_no=bs.bm_no(+)
+        order by bm.bm_no desc
+	</select>
+</mapper>

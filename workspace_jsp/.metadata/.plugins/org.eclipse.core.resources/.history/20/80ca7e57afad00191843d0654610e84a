@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문제1</title>
+<%@include file="../common/JEasyUICommon.jsp" %>
+</head>
+<body>
+문제1. DML구문 중에서 성격이 다른 하나를 고르시오.<br>
+<div style="margin-bottom:20px"></div>
+<input class="easyui-checkbox" name="fruit" value="Orange">
+1.INSERT
+<br>
+<input class="easyui-checkbox" name="fruit" value="Orange" label="Orange:">
+2.SELECT
+<br>
+<input class="easyui-checkbox" name="fruit" value="Orange" label="Orange:">
+3.UPDATE
+<br>
+<input class="easyui-checkbox" name="fruit" value="Orange" label="Orange:">
+4.DELETE
+<br>
+</body>
+</html>

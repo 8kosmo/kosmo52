@@ -1,0 +1,7 @@
+package com.network2;
+
+import JFrame;
+
+public class TalkClientVer2 extends JFrame {
+
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+head영역에는 CSS소스를 추가하거나 Javascript소스를 추가할 수 있다. 
+head영역에는 title태그를 사용할 수 있다.
+브라우저의 역할
+html 문서에 대한 인터프리터의 역할(통역)
+태그는 출력 하지 않고 내용부분만 내보냄.
+특징
+컴파일을 하지 않아요. - 문법체크를 안해 - 오타
+
+-->
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 화면처리내용을 볼 수 있다. -->
+html<br>
+css<br>
+javascript
+<h1>처음 보는 html</h1>
+</body>
+</html>

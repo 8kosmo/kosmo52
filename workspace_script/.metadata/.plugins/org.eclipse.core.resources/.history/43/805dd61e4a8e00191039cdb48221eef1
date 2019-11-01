@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <script>
+        var days = new Array(7);
+        days[0] = "일요일";    
+        days[1] = "월요일";    
+        days[2] = "화요일";    
+        days[3] = "수요일";    
+        days[4] = "목요일";    
+        days[5] = "금요일";    
+        days[6] = "토요일";    
+        for(var i=0;i<days.length;i++){
+            document.write(days[i]+"<br>");
+        }
+    </script>
+</body>
+</html>

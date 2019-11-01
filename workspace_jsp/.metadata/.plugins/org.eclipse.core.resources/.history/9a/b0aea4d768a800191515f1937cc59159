@@ -1,0 +1,57 @@
+package com.mvc1;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+public class FrontController extends HttpServlet {
+	Logger logger = Logger.getLogger(FrontController.class);
+	MemberController memCtrl = new MemberController();
+	//GoodsController goodCtrl = new GoodsController();
+	//OrderController orderCtrl = new OrderController();
+	public void doService(HttpServletRequest req, HttpServletResponse res)
+	throws ServletException,IOException{
+		logger.info("doService 호출 성공"+"word=member,order, goods");
+		String work = req.getParameter("work");
+		ActionForward forward = null;
+		if("member".equals(work))
+		{
+			forward = memCtrl.execute(req, res);
+			req.setAttribute("crud", "select");
+			//req.setAttribute("crud", "insert");
+			//req.setAttribute("crud", "update");
+			//req.setAttribute("crud", "delete");
+		}
+		else if("goods".equals(work)) {
+			
+		}
+		else if("order".equals(work)) {
+			
+		}
+		if(forward!=null) {
+			if(forward.isRedirect()) {
+				res.sendRedirect(forward.getViewName());
+			}
+			else {
+				RequestDispatcher view = 
+						req.getRequestDispatcher(forward.getViewName());
+				view.forward(req, res);
+			}
+		}
+		
+	}
+	public void doGet(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException,IOException{
+		doService(req,res);
+	}
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException,IOException{
+		doService(req,res);		
+	}
+}

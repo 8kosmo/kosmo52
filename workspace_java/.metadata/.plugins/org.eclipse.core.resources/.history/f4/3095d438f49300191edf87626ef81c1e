@@ -1,0 +1,13 @@
+package com.network;
+
+import java.io.PrintWriter;
+
+public class ServerThread extends Thread {
+	//insert here
+	
+	@Override
+	public void run() {
+		PrintWriter out = 
+				new PrintWriter(socket.getOutputStream(),true);
+	}
+}

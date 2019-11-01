@@ -1,0 +1,4 @@
+
+8월 20, 2019 08:45:29.11 NEW SESSION
+8월 20, 2019 08:45:29.11 [1532:11396:0820/084529.107:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+8월 20, 2019 09:16:58.11 [1532:11396:0820/091658.116:ERROR:account_info_fetcher.cc(59)] OnGetTokenFailure: Invalid credentials (credentials rejected by client).

@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="com.mvc1.MemberDao, com.vo.MemberVO" %>    
+<%
+	MemberDao mDao = new MemberDao();
+	MemberVO mVO = new MemberVO();
+	mDao.my_proc(mVO);
+	//out.print(mVO);
+	out.print("<br>");
+	//out.print(mVO.getKey());
+	out.print(mVO.getMem_id()+" , "+mVO.getMem_name()+" , "+mVO.getMem_pw());
+	//위와 같은 방법으로는 아이디나 이름, 비번을 꺼낼 수 없다.
+	out.print(mVO.getKey().getClass());
+	ArrayList aList = mVO.getKey();
+/* 	if(mVO.getKey().getClass()){
+		
+	}else{
+		
+	} */
+%>

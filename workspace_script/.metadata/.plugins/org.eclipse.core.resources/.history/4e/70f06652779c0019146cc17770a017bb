@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>팝업 창에 해당항목의 내용표시</title>
+<link rel="stylesheet" type="text/css" href="pictureMain.css"/>
+<script type="text/javascript">
+	//ajax코드 추가하기 - javascript - 주의사항 : 돔구성이 완료되었을 때 처리할 내용
+   	var xhrObject = null;//전역변수 선언
+    function createRequest(){
+       try{
+           xhrObject = new XMLHttpRequest();//비동기통신 객체 생성
+       }catch(trymicrosoft){
+           xhrObject = null;
+       }
+       if(xhrObject==null){
+           alert("비동기 통신객체 생성 실패!!!");
+       }
+    } 
+    //서버로 요청에 대한 처리를 전송함 - 비동기로 처리하기로 함.
+	function startMethod(td){
+		createRequest();//비동기통신 객체 생성 메소드 호출 - 전역변수로 초기화됨
+		//document.getElementById("popupContent").innerHTML = "startMethod";
+		//콜백메소드 이름 선언
+		xhrObject.onreadystatechange = popup_process;
+		//옵션 추가
+		//1)전송방식 - GET[query string,링크,제약,노출]|POST
+		//2)목적지 - 요청을 누가처리하지? - XXX.jsp(오라클통신,자바코드활용,데이터)
+		//3)옵션 - true:비동기처리, false:동기처리
+		xhrObject.open("GET",url,true);
+		//전송
+		xhrObject.send(null);
+	}
+	function clearMethod(){
+		//document.getElementById("popupContent").innerHTML = "clearMethod";
+	}
+</script>
+</head>
+<body>
+<!-- colspan="2"는 옆셀과 병합하기임, 여기서는 두 칸이 병합됨 
+     3이면 세칸이 4이면 네칸이 병합
+     위 아래로 병합할 때는 rowspan="2" 위쪽과 아래 쪽 셀이 병합됨
+-->
+<table>
+	<thead>
+		<th colspan="2">그림 목록</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td align="center"><img src="picture1.jpg" width="50" height="50"/></td>
+			<td id="1" onmouseover="startMethod(this)" onmouseout="clearMethod()">추상화1</td>
+		</tr>
+		<tr>
+			<td align="center"><img src="picture2.jpg" width="50" height="50"/></td>
+			<td id="2" onmouseover="startMethod(this)" onmouseout="clearMethod()">추상화2</td>
+		</tr>
+		<tr>
+			<td align="center"><img src="picture3.jpg" width="50" height="50"/></td>
+			<td id="3" onmouseover="startMethod(this)" onmouseout="clearMethod()">추상화3</td>
+		</tr>
+		<tr>
+			<td align="center"><img src="picture4.jpg" width="50" height="50"/></td>
+			<td id="4" onmouseover="startMethod(this)" onmouseout="clearMethod()">추상화4</td>
+		</tr>
+	</tbody>
+</table>
+<div id="popupContent">여기</div>
+</body>
+</html>
+
+
+
+
+

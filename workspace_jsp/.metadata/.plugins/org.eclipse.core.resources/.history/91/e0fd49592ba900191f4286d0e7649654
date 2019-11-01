@@ -1,0 +1,80 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원관리</title>
+<%@ include file="../common/JEasyUICommon.jsp" %>
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function (){
+		$('#dg_member').datagrid({
+			title:"회원관리 ver1.0",
+			toolbar:"#tb_member",
+		    columns:[[
+		        {field:'MEM_ID',title:'아이디',width:150},
+		        {field:'MEM_NAME',title:'이름',width:150},
+		        {field:'MEM_ADDR',title:'주소',width:300,align:'left'}
+		    ]]
+		});///////////end of datagrid
+		$('#dlg_ins').dialog({
+			title:"회원가입"
+		   ,width:500
+		   ,height: 300
+		   ,footer:"#tb_ins"
+		   ,closed:false
+		});
+		$('#btn_save').linkbutton({
+			onClick:function(){
+				alert('save');
+			}
+		});
+		$('#btn_close').linkbutton({
+			onClick:function(){
+				alert('close');
+				$('#dlg_ins').dialog('close');
+			}
+		});
+	});
+</script>
+<table id="dg_member"></table>
+<div id="tb_member" style="padding:5px;">
+<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'">가입</a>
+</div>
+<!--======================= 회원가입 =======================-->
+<div id="dlg_ins">
+     <div style="margin-bottom:20px">
+         <input class="easyui-textbox" label="아이디:" labelPosition="top" data-options="prompt:'Enter a ID'" style="width:110px;">
+     </div>
+     <div style="margin-bottom:20px">
+         <input class="easyui-textbox" label="이름:" labelPosition="top" data-options="prompt:'Enter a Name'" style="width:150px;">
+     </div>
+     <div style="margin-bottom:20px">
+         <input class="easyui-textbox" label="우편번호:" labelPosition="top" data-options="prompt:'Enter a ZipCode'" style="width:100px;">
+     </div>
+     <div style="margin-bottom:20px">
+         <input class="easyui-textbox" label="주소:" labelPosition="top" data-options="prompt:'Enter a ADDRESS'" style="width:300px;">
+     </div>
+     <div style="margin-bottom:20px">
+         <input class="easyui-textbox" label="비번:" labelPosition="top" data-options="prompt:'Enter a PASSWORD'" style="width:110px;">
+     </div>
+</div>
+<div id="tb_ins" style="padding:5px;">
+<a id="btn_save" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save'">저장</a>
+<a id="btn_close" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'">닫기</a>
+</div>
+<!--======================= 회원가입 =======================-->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

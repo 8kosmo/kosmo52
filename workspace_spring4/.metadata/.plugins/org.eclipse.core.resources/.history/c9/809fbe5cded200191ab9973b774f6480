@@ -1,0 +1,17 @@
+package com.sts3.sample;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/mail/*")
+public class MailController {
+	Logger logger = LoggerFactory.getLogger(MailController.class);
+	@GetMapping(value = "mailSend")
+	public String mailSend() {
+		return "redirect:./mailSendOk.jsp";
+	}
+}

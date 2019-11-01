@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!-- 
+DOM을 지원하는 API학습 
+DOM API를 활용하여 html태그를 추가, 삭제, 변경 처리할 수 있다.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM-textContent</title>
+</head>
+<body>
+<script type="text/javascript">
+	window.onload = function(){//익명함수
+		
+	}
+</script>
+</body>
+</html>

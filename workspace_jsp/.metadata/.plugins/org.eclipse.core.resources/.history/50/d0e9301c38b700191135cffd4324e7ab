@@ -1,0 +1,8 @@
+package com.vo;
+
+public class BoardSubVO {
+	  BM_NO    NUMBER(5),
+	  BS_SEQ   NUMBER(5),
+	  BS_FILE  VARCHAR2(300 BYTE),
+	  BS_SIZE  NUMBER(9,2)
+}

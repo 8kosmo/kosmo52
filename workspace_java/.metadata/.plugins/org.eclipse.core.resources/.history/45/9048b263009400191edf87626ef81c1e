@@ -1,0 +1,25 @@
+package com.network;
+
+import java.net.Socket;
+/*
+ * TimeClientVer2는 스레드가 필요하지 않아요
+ * 왜냐하면 클라이언트는 서버를 개설할 필요가 없다.
+ * 
+ */
+public class TimeClientVer2 {
+	Socket client = null;//내가 필요한 소켓정보 하나만....
+	public void initDisplay() {
+		
+	}
+	public static void main(String[] args) {
+		TimeClientVer2 tc2 = new TimeClientVer2();
+		tc2.initDisplay();
+		try {
+			tc2.client = new Socket("192.168.0.244",3001);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

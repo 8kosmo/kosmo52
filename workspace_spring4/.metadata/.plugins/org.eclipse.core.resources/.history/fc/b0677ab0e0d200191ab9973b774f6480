@@ -1,0 +1,32 @@
+package com.sts3.sample;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/mail/*")
+public class MailController {
+	Logger logger = LoggerFactory.getLogger(MailController.class);
+	@GetMapping(value = "mailSend")
+	public String mailSend() {
+		logger.info("mailSend 호출 성공");
+		//insert here - 메일 제목, 메일 내용, 전송메소드 호출하기
+		//보내는 사람 메일주소
+		
+		//받는 사람 메일 주소
+		
+		//메일 제목
+		
+		//메일 내용
+		
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return "redirect:./mailSendOk.jsp";
+	}
+}

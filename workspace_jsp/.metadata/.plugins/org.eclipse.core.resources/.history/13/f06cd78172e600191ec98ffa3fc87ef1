@@ -1,0 +1,16 @@
+package com.pojo;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class PfrontController extends HttpServlet {
+	public void doGet(HttpServletRequest req, HttpServletResponse res)
+	throws Exception{
+		
+	}
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
+			throws Exception{
+		
+	}
+}

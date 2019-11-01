@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%!
+	int x = 1;
+	public String newsList(String news[]){
+		StringBuilder sb = new StringBuilder();
+		sb.append("<table width='500px' border='1'>");
+		sb.append("<tr><td>"+news[0]+" > "+news[1]+"</td></tr>");
+		sb.append("</table>");
+		return sb.toString();
+	}
+%>    
+<%
+	String news1[] = {"연합뉴스","정부, 성장률 목표 2.4∼2.5%로 0.2%p 하향…고용 전망은 상"};
+	String news2[] = {"연합뉴스","학교비정규직노조 총파업' 급식대란 현실화…4천600여개교 차질"};
+	String news3[] = {"연합뉴스","징용보복에 日산업계 우려 확산…日공급망 파괴"};
+	String news4[] = {"연합뉴스","정부 투자회생 올인…대기업 투자세액공제율 2배로↑"};
+	String news5[] = {"연합뉴스","식약처, '인보사' 허가취소 확정…코오롱 소송 진행"};
+	String datas = "";
+	switch(x){
+	case 1:
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
+	case 4:
+		break;
+	case 5:
+		break;
+	}
+%>

@@ -1,0 +1,22 @@
+package com.ch15;
+
+import javax.swing.JFrame;
+
+public class MyEditor extends JFrame{
+	//선언부
+	
+	//생성자
+	public MyEditor() {
+		
+	}
+	//화면처리부
+	public void initDisplay() {
+		
+	}
+	//메인메소드
+	public static void main(String[] args) {
+		MyEditor myEditor = new MyEditor();
+		myEditor.initDisplay();
+	}
+
+}

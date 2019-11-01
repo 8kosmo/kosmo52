@@ -1,0 +1,16 @@
+package com.test;
+
+import org.apache.log4j.Logger;
+
+public class MemberLogic {
+	Logger logger = Logger.getLogger(MemberLogic.class);
+	public MemberDao memberDao = null;
+	public void setMemberDao(MemberDao memberDao) {
+		this.memberDao = memberDao;
+	}
+	public void memberList() {
+		logger.info("memberList 호출 성공");
+		memberDao.memberList();
+	}
+	
+}

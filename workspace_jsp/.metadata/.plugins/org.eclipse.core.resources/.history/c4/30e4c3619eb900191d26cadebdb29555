@@ -1,0 +1,59 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.List, java.util.Map, java.util.HashMap" %>    
+<%
+	List<Map<String,Object>> boardDetail = 
+	(List<Map<String,Object>>)request.getAttribute("boardDetail");
+	Map<String,Object> rMap = new HashMap<>();
+	/*
+	마이바티스 사용시 자동으로 담아주므로 vo의 경우 사용자가 대소문자를 구분해서 사용하지만
+	Map의 경우 마이바티스가 컬럼명을 기준으로 자동으로 키값을 생성하는데 디폴트가 대문자임.
+	*/
+	if(boardDetail!=null){
+		rMap = boardDetail.get(0);
+	}
+%>    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>글상세보기</title>
+<%@ include file="/common/JEasyUICommon.jsp" %>
+</head>
+<body>
+<table id="pan_read" class="easyui-panel" title="글상세보기"
+ style="width:670px;height:380px;padding:10px;background:#fafafa;">
+	<tr>
+		<td>제목</td>
+		<td><input class="easyui-textbox" value="<%=rMap.get("BM_TITLE") %>" id="bm_title" data-options="width:'450px'"></td>
+	</tr>
+	<tr>
+		<td>작성자</td>
+		<td><input class="easyui-textbox" value="<%=rMap.get("BM_WRITER") %>" id="bm_writer" data-options="width:'450px'"></td>
+	</tr>
+	<tr>
+		<td>이메일</td>
+		<td><input class="easyui-textbox" value="<%=rMap.get("BM_EMAIL") %>" id="bm_email" data-options="width:'450px'"></td>
+	</tr>
+	<tr>
+		<td>내용</td>
+		<td><input class="easyui-textbox" value="<%=rMap.get("BM_CONTENT") %>" id="bm_content" data-options="multiline:'true',width:'450px', height:'90px'"></td>
+	</tr>
+	<tr>
+		<td>비밀번호</td>
+		<td><input class="easyui-textbox" value="<%=rMap.get("BM_PW") %>" id="bm_pw" data-options="width:'450px'"></td>
+	</tr>
+</table>
+ <div id="tb_read" style="padding:2px 5px;">
+    <a href="javascript:boardList()" class="easyui-linkbutton" iconCls="icon-search" plain="true">조회</a>
+    <a href="javascript:addForm()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">입력</a>
+    <a href="javascript:updForm()" class="easyui-linkbutton" iconCls="icon-add" plain="true">수정</a>
+    <a href="javascript:delForm()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">삭제</a>
+</div>
+<!-- 수정하기, 삭제하기, 댓글쓰기, 목록 버튼 -->
+<!--================== [[글수정하기 화면]] ==================-->
+<!--================== [[글삭제하기 화면]] ==================-->
+<!--================== [[댓글쓰기 화면]] ==================-->
+
+</body>
+</html>

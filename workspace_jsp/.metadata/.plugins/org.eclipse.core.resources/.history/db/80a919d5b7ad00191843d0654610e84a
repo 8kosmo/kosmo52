@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문제2</title>
+<%@include file="../common/JEasyUICommon.jsp" %>
+</head>
+<body>
+<div class="easyui-panel" title="문제2" style="width:600px;height:100px"
+			data-options="fit:true,border:true,footer:'#footer'">
+	<div>
+	문제2. 다음 중에서 자바에서 제공하는 타입이 아닌것은?
+	</div>
+	<div style="margin-bottom:20px"></div>
+	<input class="easyui-checkbox" name="fruit" value="Orange">
+	1.int
+	<div style="margin-bottom:10px"></div>
+	<input class="easyui-checkbox" name="fruit" value="Orange">
+	2.String
+	<div style="margin-bottom:10px"></div>
+	<input class="easyui-checkbox" name="fruit" value="Orange">
+	3.varchar2
+	<div style="margin-bottom:10px"></div>
+	<input class="easyui-checkbox" name="fruit" value="Orange">
+	4.Object
+	<div style="margin-bottom:10px"></div>
+</div>	
+<div id="footer" style="padding:5px;">
+ <a href="#" class="easyui-linkbutton" style="width:80px">이전문제</a>
+ <a href="#" class="easyui-linkbutton" style="width:80px">다음문제</a>
+</div>
+</body>
+</html>

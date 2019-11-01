@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="com.vo.MemberVO" %>    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- html, css, javascript -->
+<%
+    //자바땅
+	//스크립틀릿 -  지변이다, 메소드선언불가, 생성자 불가, 제어문 가능, 인스턴스화 가능
+	MemberVO mVO = new MemberVO();//순제어
+	mVO.id="test";
+%>
+<%=mVO.getMem_id() %>, <%=mVO.getMem_name() %>
+</body>
+</html>

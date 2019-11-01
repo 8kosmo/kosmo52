@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="javax.mail.*, javax.mail.internet.*,java.util.Properties" %>    
+<%
+	String smtpServer = "smtp.naver.com";
+	//사용하고자 하는 smtp서버의 계정 정보
+    String username = "";
+    String password = "";
+    //보내는 사람 이메일 주소
+    String fromMail = "";
+   	int smtpPort = "465";
+   	
+   	//받는이
+   	String toMail = "";
+   	//메일 제목
+   	String subject = "안녕하세요. 홍길동입니다.";
+   	//메일 내용
+   	String content = "네이버 smtp서버를 활용한 메일 전송 테스트입니다.";
+   	content+="<br>전송 성공 체크";
+%>

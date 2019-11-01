@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>innerHTML에 관해서...</title>
+<!-- 
+mime type 
+브라우저는 mime타입으로 판정
+image/png, image/gif image/jpg......
+video/avi, video/mp4
+main type text/javascript, text/plain, text/html
+sub type
+-->
+<style type="text/css">
+ div {
+ 	display:block;
+    background-color: red;
+ }	
+ span {
+    display: inline;
+    background-color: blue; 
+ }
+</style>
+</head>
+<body>
+<!-- 인라인속성과 블럭속성 -->
+aaa
+<div id="d_msg"></div>
+bbb
+1111
+<span></span>
+2222
+</body>
+</html>

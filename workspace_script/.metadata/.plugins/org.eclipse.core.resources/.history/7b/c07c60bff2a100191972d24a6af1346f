@@ -1,0 +1,27 @@
+package naver.captcha;
+
+public class APIExamCaptchaAll {
+/*
+ * ik_9iwk0aCNEp85yIYA5
+ * br6PPxlpBj
+ */
+	//키발급 메소드 선언
+	public void getKey(String id, String pw) {
+		
+	}
+	//발급된 키로 캡챠이미지 생성하기
+	public void makeImage(String key) {
+		
+	}
+	//값을 비교해서 처리결과를 받아오기
+	public void chaptchaAccount() {
+		
+	}
+	public static void main(String[] args) {
+		String id = "ik_9iwk0aCNEp85yIYA5";
+		String pw = "br6PPxlpBj";
+		APIExamCaptchaAll apiCaptcha = new APIExamCaptchaAll();
+		apiCaptcha.getKey(id, pw);
+	}
+
+}

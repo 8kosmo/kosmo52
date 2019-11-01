@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>생성자 함수와 객체활용</title>
+    <script>
+        //전역변수 - super, this
+        var speed=0;
+        var carName="";
+        var wheelNum=0;
+        var carColor="#000000";
+        function Sonata(){
+            this.speed = 50;
+            this.carName = "2019년형 소나타";
+            this.wheelNum = 4;
+        }
+        function Tivoli(){
+            this.carColor="#CCCCCC";
+            this.carName = "2019년형 티볼리";
+            this.wheelNum = 4;
+        }
+        function Tivoli(carColor,carName,wheelNum){
+            this.carColor=carColor;
+            this.carName = carName;
+            this.wheelNum = wheelNum;
+        }        
+    </script>
+</head>
+<body>
+    <script>
+        var myCar = new Sonata();
+        var herCar = new Sonata();
+        var himCar = new Tivoli("pink","티볼리",4);
+        for(pro in himCar){
+            //himCar["carName"] => himCar.carName
+            document.write(pro+"="+himCar[pro]+"<br>");
+        }
+        // herCar.speed = 100;
+        // document.write("내자동차",myCar.carName);
+        // document.write("현재 내차 속도",myCar.speed);
+        // document.write("그녀의 속도",herCar.speed);
+    </script>
+</body>
+</html>

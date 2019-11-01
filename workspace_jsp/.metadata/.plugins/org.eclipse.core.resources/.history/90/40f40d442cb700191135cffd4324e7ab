@@ -1,0 +1,14 @@
+package com.mvc2;
+
+import org.apache.log4j.Logger;
+
+import com.vo.BoardSubVO;
+
+public class BoardDao {
+	Logger logger = Logger.getLogger(BoardDao.class);
+	public int boardSAdd(BoardSubVO bsVO) {
+		logger.info("boardSAdd 호출 성공");
+		return 0;
+	}
+
+}

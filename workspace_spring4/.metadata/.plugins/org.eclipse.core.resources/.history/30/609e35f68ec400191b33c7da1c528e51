@@ -1,0 +1,12 @@
+package com.test;
+
+public class MemberLogic {
+	public MemberDao memberDao = null;
+	public void setMemberDao(MemberDao memberDao) {
+		this.memberDao = memberDao;
+	}
+	public void memberList() {
+		memberDao.memberList();
+	}
+	
+}

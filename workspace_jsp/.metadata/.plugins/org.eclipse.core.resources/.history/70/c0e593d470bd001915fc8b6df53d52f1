@@ -1,0 +1,28 @@
+package com.mvc3;
+
+import com.mvc2.BoardController;
+import com.mvc2.Controller;
+import com.mvc2.ControllerMapping;
+import com.mvc2.Member2Controller;
+import com.mvc2.Test2Controller;
+
+public class ControllerMappingVer3 {
+	static String crud = "";
+	/***************************************************************
+	 * 
+	 * @param command onLineTest/test.mo?work=select
+	 * @param crud - select
+	 * @return
+	 **************************************************************/
+	public static Controller getController(String command, String crud) {
+		ControllerMapping.crud = crud;
+		Controller controller = null;
+		String commands[] = command.split("/");
+		String work = commands[0];//onLineTest
+		String requestName = commands[1];//test.mo?work=select
+		if("board".equals(work)) {
+			controller = new BoardController(requestName,ControllerMapping.crud);
+		}
+		return controller;
+	}
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax_수업</title>
+</head>
+<body>
+<center>
+	<table width="900px" height="650px">
+<!-- top.html 시작 -->	
+		<tr>
+			<td>
+			
+			</td>
+		</tr>
+<!-- top.html 끝 -->	
+<!-- body.html 시작 -->			
+		<tr>
+			<td>
+			
+			</td>
+		</tr>
+<!-- body.html 끝 -->			
+		
+		<tr>
+			<td>
+			</td>
+		</tr>
+		
+	</table>
+</center>
+</body>
+</html>

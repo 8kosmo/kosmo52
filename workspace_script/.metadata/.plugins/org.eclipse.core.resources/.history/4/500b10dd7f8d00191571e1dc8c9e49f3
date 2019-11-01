@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>배열</title>
+</head>
+<body>
+<script>
+    var days = ["월요일","화요일","수요일"
+               ,"목요일","금요일","토요일","일요일"];
+    for(var i=0;i<days.length;i++){
+        document.write(days[i],"<br>");
+    }
+    
+</script>
+</body>
+</html>

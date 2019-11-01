@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add and Remove Layout - jQuery EasyUI Demo</title>
+    <!-- 
+    easyui.css는 jeasyui가 제공하는 콤포넌트(예:datagrid,layout 등)에 
+       디자인을 입힐 때 사용됨
+     -->
+    <link rel="stylesheet" type="text/css" href="/themes/default/easyui.css">
+	<!-- icon.css는 아이콘 이미지 처리하는데 사용됨 -->   
+    <link rel="stylesheet" type="text/css" href="/themes/icon.css">
+    <!-- jeasyui 데모페이지에 사용되는 css임 -->
+    <link rel="stylesheet" type="text/css" href="/demo/demo.css">
+    <!-- jeasyui가 jquery기반이므로 호환성을 검증한 스크립트 코드만 따로 모아둠. -->
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <!-- 
+    jeasyui가 jquery기반이므로 아래 파일을 import하기 전에 반드시 jquery.min.js
+       가 import되어 있어야 함. 순서 반드시 지킬것. 
+     -->
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+	<script type="text/javascript">
+		var db_name="김유신";
+		//로그인 요청시 구현
+		function loginAction(){
+			var db_id="test";
+			var db_pw="123";
+			var u_id = $("#tb_id").val();
+			var u_pw = $("#tb_pw").val();
+			if(db_id==u_id){
+				if(db_pw==tb_pw){
+					
+				}
+				else{
+					alert("비밀번호가 틀립니다.");
+					$("#tb_pw").focus();
+				}
+			}else{
+				alert("아이디가 존재하지 않습니다.");
+				$("#tb_id").focus();
+			}
+		}
+		//로그아웃 요청시 구현
+		function logoutAction(){
+			
+			
+		}
+	</script>
+</head>
+<body>
+	<style>
+		#d_login {
+		    /*border: 1px solid red;*/
+			width: 190px;
+			height: 110px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function (){
+//세개 페이지(회원관리,DVD관리,대여관리) 숨김 처리하기			
+			$("#d_member").hide();
+			$("#d_dvd").hide();
+			$("#d_rental").hide();		
+//easyui에서 제공하는 tree객체에 onClick이벤트 처리하기 시작			
+			$('#te_menu').tree({//따로 함수 선언하지 않고 즉시 처리
+				//파라미터로 넘어오는 node는 사용자가 선택한 엘리먼트 정보 가짐
+				onClick: function(node){//트리메뉴 선택했을때 이벤트 처리
+					//alert(node.text);  // alert node text property when clicked
+					//node.text하면 선택한 노드문자열 가져옴.
+					if("회원관리"==node.text){//너 회원관리 누른거야?
+						//alert("11");
+					//show메소드 호출하면 화면에 출력되고
+					//hide메소드 호출하면 화면에 숨김 처리됨.
+						$("#d_member").show();
+						$("#d_dvd").hide();
+						$("#d_rental").hide();
+					}
+					else if("DVD관리"==node.text){
+						//alert("22");
+						$("#d_member").hide();
+						$("#d_dvd").show();
+						$("#d_rental").hide();						
+					}
+					else if("대여관리"==node.text){
+						//alert("33");
+						$("#d_member").hide();
+						$("#d_dvd").hide();
+						$("#d_rental").show();						
+					}
+				}
+			});			
+		});
+	</script>
+    <div id="cc" class="easyui-layout" style="width:900px;height:550px;">
+        <div data-options="region:'west',split:true" title="코딩놀이" style="width:200px;">
+		<!-- 여백을 주기 위해 -->
+		<div style="margin:10px 0;"></div>
+<!--============= 로그인 화면 처리 시작 =============-->		
+		<div id="d_login" align="center">
+			<input id="tb_id" name="mem_id">	
+			 <div style="margin:5px 0;"></div>
+			<input id="tb_pw" name="mem_pw">
+			 <div style="margin:5px 0;"></div>
+			<a href="javascript:loginAction()" class="easyui-linkbutton">로그인</a>	
+			<a href="javascript:memberAction()" class="easyui-linkbutton">회원가입</a>	
+			<script type="text/javascript">
+			$('#tb_id').textbox({
+			    iconCls:'icon-man',
+			    iconAlign:'right'
+			})
+			$('#tb_pw').textbox({
+			    iconCls:'icon-lock',
+			    iconAlign:'right'
+			})
+			</script>	
+		</div>
+<!--============= 로그인 화면 처리 끝 =============-->		
+<!--============= 로그아웃 화면 처리 시작 =============-->		
+		<div id="d_logout" align="center">
+			<span id="s_msg"></span>
+			<a href="javascript:logoutAction()" class="easyui-linkbutton">로그아웃</a>	
+			<a href="javascript:memberUpdate()" class="easyui-linkbutton">정보수정</a>	
+			<script type="text/javascript">
+			$('#tb_id').textbox({
+			    iconCls:'icon-man',
+			    iconAlign:'right'
+			})
+			$('#tb_pw').textbox({
+			    iconCls:'icon-lock',
+			    iconAlign:'right'
+			})
+			</script>	
+		</div>
+<!--============= 로그아웃 화면 처리 끝 =============-->		
+<!--============== 메뉴 트리 시작 =============--> 
+        <ul id="te_menu" class="easyui-tree">
+	        <li data-options="state:'closed'">
+	            <span>회원관리</span>
+	            <ul>
+	                <li>
+	                    <span>회원목록</span>
+	                </li>
+	                <li>
+	                    <span>회원등록</span>
+	                </li>
+	                <li>
+	                    <span>회원수정</span>
+	                </li>
+	                <li>
+	                    <span>회원삭제</span>
+	                </li>
+	            </ul>
+	        </li>
+	        <li data-options="state:'closed'">
+	            <span>DVD관리</span>
+	            <ul>
+	                <li>
+	                    <span>DVD목록</span>
+	                </li>
+	                <li>
+	                    <span>DVD등록</span>
+	                </li>
+	                <li>
+	                    <span>DVD수정</span>
+	                </li>
+	                <li>
+	                    <span>DVD삭제</span>
+	                </li>
+	            </ul>
+	        </li>
+	        <li data-options="state:'closed'">
+	            <span>대여관리</span>
+	            <ul>
+	                <li>
+	                    <span>대여목록</span>
+	                </li>
+	                <li>
+	                    <span>대여등록</span>
+	                </li>
+	                <li>
+	                    <span>대여수정</span>
+	                </li>
+	                <li>
+	                    <span>대여삭제</span>
+	                </li>
+	            </ul>
+	        </li>
+        </ul>
+<!--============== 메뉴 트리  끝 =============--> 
+        </div>
+        <div data-options="region:'center',title:'DVD관리시스템'">
+		<!-- 회원관리 -->
+		     <div id="d_member">회원</div>   
+		<!-- DVD관리 -->
+		     <div id="d_dvd">DVD</div>   
+		<!-- 대여관리 -->        
+		     <div id="d_rental">대여</div>   
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

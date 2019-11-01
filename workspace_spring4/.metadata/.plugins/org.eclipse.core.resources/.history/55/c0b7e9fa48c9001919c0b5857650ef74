@@ -1,0 +1,59 @@
+package com.sts3.board;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.vo.BoardMasterVO;
+@Service
+public class BoardLogic {
+	Logger logger = Logger.getLogger(BoardLogic.class);
+	@Autowired
+	private BoardDao boardDao = null;
+	int total = 0;
+	public int getTot(BoardMasterVO bmVO) {
+		total = 0;
+		total = boardDao.getTotal(bmVO);
+		return total;
+	}	
+	public List<Map<String,Object>> boardList(Map<String, Object> pMap) {
+		logger.info("boardList 호출 성공");
+		List<Map<String,Object>> boardList = null;
+		BoardMasterVO bmVO = new BoardMasterVO();
+		total = getTot(bmVO);
+		//현재 바라보는 페이지 번호
+		int pageNumber = 0;//2
+		//한 페이지에 뿌려질 수
+		int pageSize = 0;//2
+		//시작 번호
+		int start = 0;
+		//끝 번호
+		int end = 0;
+		String spageNumber = "";
+		if(pMap.get("pageNumber")!=null) {
+			spageNumber = pMap.get("pageNumber").toString();
+			pageNumber=Integer.parseInt(spageNumber);
+		}
+		String spageSize = "";
+		if(pMap.get("pageSize")!=null) {
+			spageSize = pMap.get("pageSize").toString();
+			spageSize=Integer.parseInt(pageSize);
+		}
+		if(pageNumber>0) {
+			start = ((pageNumber-1)*pageSize)+1;
+			end = pageNumber * pageSize;
+			bmVO.setStart(start);
+			if(end > total) {
+				bmVO.setEnd(total);
+			}else {
+				bmVO.setEnd(end);//0
+			}
+		}
+		boardList = boardDao.boardList(pMap);
+		return boardList;
+	}
+
+}

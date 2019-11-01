@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>A태그-inline</title>
+</head>
+<body>
+<a href="./innerHTMLTest.html">이동</a><br>
+<a href="../html_day1/sample.jsp" target="_parent">다른 폴더로 이동</a><br>
+</body>
+</html>

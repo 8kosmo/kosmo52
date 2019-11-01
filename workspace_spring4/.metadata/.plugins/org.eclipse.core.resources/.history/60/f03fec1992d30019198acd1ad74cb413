@@ -1,0 +1,37 @@
+package com.erp;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.vo.DeptVO;
+import com.vo.EmpVO;
+@Service
+public class EmpLogic {
+	Logger logger = Logger.getLogger(EmpLogic.class);
+	@Autowired(required=false)
+	public DeptDao deptDao = null;
+	@Autowired(required=false)
+	public EmpDao empDao = null;
+	public void eudEmp(EmpVO eVO) {
+		eVO.setEmpno(9004);
+		eVO.setEname("나초보");
+		eVO.setMgr(7902);
+		eVO.setJob("CLERK");
+		eVO.setHiredate("");
+		eVO.setSal(2500);
+		eVO.setComm(500);
+		eVO.setDeptno(92);
+		try {
+			empDao.empInsert(eVO);
+			DeptVO dVO = new DeptVO();
+			dVO.setDeptno(92);
+			dVO.setDname("총무부");
+			dVO.setLoc("부산");
+			deptDao.deptInsert(dVO);
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+}

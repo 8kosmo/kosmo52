@@ -1,0 +1,17 @@
+package com.util;
+
+import java.security.MessageDigest;
+
+public class Sha256Util {
+	public static String applySha256(String user) {
+		try {
+			//java api를 활용하여 256비트 암호화 처리하기
+			MessageDigest digest = MessageDigest.getInstance("SHA-256");
+			byte[] hash = digest.digest(user.getBytes("UTF-8"));
+			//16진수로 값을 변경하여 담을 변수 선언
+			StringBuffer hexString = new StringBuffer();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+}

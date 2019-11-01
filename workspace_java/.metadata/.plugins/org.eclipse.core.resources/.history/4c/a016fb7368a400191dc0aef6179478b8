@@ -1,0 +1,16 @@
+package UI.swing;
+
+public class SungJukApp {
+	//선언부
+	
+	//생성자
+	
+	//화면처리 구현
+	
+	//메인메소드
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

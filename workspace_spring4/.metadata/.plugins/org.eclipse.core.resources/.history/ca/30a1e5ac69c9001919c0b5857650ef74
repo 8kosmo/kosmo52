@@ -1,0 +1,98 @@
+package com.sts3.board;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.sts3.sample.HomeController;
+import com.vo.MemberVO;
+
+@Controller
+@RequestMapping(value="/board")
+public class BoardController {
+	//Logger logger = Logger.getLogger(BoardController.class);
+	@Autowired
+	private BoardLogic boardLogic = null;
+	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);	
+	@RequestMapping(value="boardList.mvc", method=RequestMethod.GET)
+	public String boardList(@RequestParam Map<String,Object> pMap,Model mod,HttpServletRequest req) {
+		logger.info("boardList호출 성공"+pMap.get("pageNumber"));
+		logger.info("boardList호출 성공"+pMap.get("pageSize"));
+		int tot = 0;
+		tot = boardLogic.getTot(null);
+		HttpSession session = req.getSession();
+		session.setAttribute("s_tot", tot);
+		List<Map<String,Object>> boardList = null;
+		//페이지처리 초기값 담기
+		int pageNumber = 0;
+		int pageSize = 0;
+		if(pMap.containsKey("pageNumber")) {
+			pageNumber = Integer.parseInt
+								(pMap.get("pageNumber").toString());
+		}
+		if(pMap.containsKey("pageSize")) {
+			pageSize = Integer.parseInt
+								(pMap.get("pageSize").toString());
+		}
+		logger.info(pageNumber+", "+pageSize);
+		boardList=boardLogic.boardList(pMap);
+		mod.addAttribute("boardList", boardList);	
+		return "forward:boardListVer2.jsp";
+	}
+	//webapp->board아래에서 찾음
+	//ViewResolver사용하지 않는 경우
+	@GetMapping("boardList2")
+	public String boardList2(MemberVO mVO) {
+		//http://localhost:9000/sample/board/boardList.do?mem_id=test&mem_name=%EC%9D%B4%EC%88%9C%EC%8B%A0
+		logger.info("boardList호출 성공"+mVO.getMem_id());
+		logger.info("boardList호출 성공"+mVO.getMem_name());
+		return "redirect:boardList.jsp";
+	}
+	//webapp->board아래에서 찾음
+	//ViewResolver사용하지 않는 경우
+	@PostMapping("boardList3")
+	public String boardList3(Model mod) {
+		List<Map<String,Object>> memList = new ArrayList<>();
+		Map<String,Object> rMap = new HashMap<>();
+		rMap.put("mem_id","test");
+		rMap.put("mem_name","김유신");
+		rMap.put("mem_address","서울시 마포구 공덕동");
+		memList.add(rMap);
+		rMap = new HashMap<>();
+		rMap.put("mem_id","apple");
+		rMap.put("mem_name","이순신");
+		rMap.put("mem_address","서울시 영등포구 당산동");
+		memList.add(rMap);
+		rMap = new HashMap<>();
+		rMap.put("mem_id","haha");
+		rMap.put("mem_name","하하");
+		rMap.put("mem_address","서울시 구로구 가산동");
+		memList.add(rMap);	
+		mod.addAttribute("memList",memList);		
+		return "forward:boardList.jsp";
+	}
+	//WEB-INF->view->board아래에서 찾음
+	//ViewResolver사용하는 경우
+	public ModelAndView boardList4() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("board/boardList");
+		return mav;
+	}
+}

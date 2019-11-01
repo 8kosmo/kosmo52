@@ -1,0 +1,13 @@
+package com.mySNS2;
+
+public class StringParser {
+
+	public static void main(String[] args) {
+		String url =  "mySNS2/msgList.sns";
+		url =  "memberAdd.sns";
+		String methodName = 
+				UrlParser.parse(url);
+		System.out.println("methodName : "+methodName);//login
+	}
+
+}

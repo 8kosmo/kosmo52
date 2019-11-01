@@ -1,0 +1,21 @@
+package com.mvc1;
+
+import java.util.List;
+import java.util.Map;
+
+public class TestDao {
+	
+	/*
+	 * Dao에서  MyBatis를 활용하여 오라클 서버에 접속(MyBatis에서 대신 해줌.)하고
+	 * 쿼리문을 요청하기 위해 myBatis에서 제공하는 클래스를 객체 주입 받아야 함.
+	 * 생성자에서 초기화하기 
+	 */
+	public TestDao() {
+		
+	}
+	public List<Map<String, Object>> subjectList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

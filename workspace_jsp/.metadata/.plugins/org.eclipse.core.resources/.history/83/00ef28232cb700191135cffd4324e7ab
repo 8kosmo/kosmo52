@@ -1,0 +1,12 @@
+package com.mvc2;
+
+import com.vo.BoardSubVO;
+
+public class BoardDao {
+
+	public int boardSAdd(BoardSubVO bsVO) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

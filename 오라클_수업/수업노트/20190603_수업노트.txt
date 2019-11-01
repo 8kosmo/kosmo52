@@ -1,0 +1,46 @@
+한 테이블에 날짜로 선언된 컬럼이 있다고 
+가정했을 때 이 컬럼에 데이터는 항상
+토요일과 일요일에만 입력되어야 한다고
+했을 때 이것을 원천적으로 막을 수 있는
+방법이 있다.
+
+트리거를 이용해서 update, insert, delete
+시에 해당데이터를 체크하면 된다.
+
+트리거의 변경
+트리거의 상태를 비활성화 또는 활성화
+할 수 있다.
+ALTER trigger 트리거명 disable|enable
+
+CREATE OR REPLACE TRIGGER trg_test1
+BEFORE
+UPDATE OR DELETE OR INSERT on dept
+DECLARE
+ s_msg varchar2(100):='';
+BEGIN
+  IF INSERTING THEN
+    dbms_output.put_line('==> insert');
+  END IF;  
+  IF UPDATING THEN
+    dbms_output.put_line('==> update');
+  END IF;  
+  IF DELETING THEN
+    dbms_output.put_line('==> delete');    
+  END IF;  
+END;
+
+연습문제
+사원정보 등록시에 7839번 사번에 대해서는 입력할 수 
+없도록 트리거를 작성하시오.
+
+BEFORE
+
+:old.empno
+
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.mapper.BoardMapper">
+	<!-- <resultMap id="mVO" type="com.vo.MemberVO"/> -->		
+	<select id="currentTime" parameterType="int" resultType="java.lang.String"> 
+		select TO_CHAR(sysdate,'YYYY-MM-DD') from dual    
+	</select>
+	<insert id="boardMAdd" parameterType="com.vo.BoardMasterVO"
+		<selectKey id="">
+			select seq_board_no.nextval bno from dual
+		</selectKey>
+	</insert>
+	<select id="boardList" parameterType="com.vo.BoardMasterVO" resultType="map">
+		select bm.bm_title,bm.bm_date,bm.bm_hit
+              ,bs.bs_file, bm.bm_writer 
+          from  board_master2019 bm,board_sub2019 bs 
+         where bm.bm_no=bs.bm_no(+)
+        order by bm.bm_no desc
+	</select>
+</mapper>

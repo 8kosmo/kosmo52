@@ -1,0 +1,76 @@
+
+7월 15, 2019 10:16:44.41 NEW SESSION
+7월 15, 2019 10:16:44.41 [14176:8056:0715/101644.409:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+7월 15, 2019 10:16:44.41 [14176:8056:0715/101644.410:ERROR:account_info_fetcher.cc(59)] OnGetTokenFailure: Invalid credentials (credentials rejected by client).
+7월 15, 2019 11:00:45.34 [14176:8056:0715/110045.345:ERROR:http_bridge.cc(110)] NOT IMPLEMENTED
+7월 15, 2019 11:00:45.41 [14176:6060:0715/110045.412:ERROR:browser_process_sub_thread.cc(221)] Waited 25 ms for network service
+7월 15, 2019 11:01:38.51 [14000:8336:0715/110138.514:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+7월 15, 2019 12:07:49.87 [14000:8336:0715/120749.872:ERROR:http_bridge.cc(110)] NOT IMPLEMENTED
+7월 15, 2019 12:07:49.91 [14000:2560:0715/120749.919:ERROR:browser_process_sub_thread.cc(221)] Waited 16 ms for network service
+
+7월 17, 2019 09:48:46.84 NEW SESSION
+7월 17, 2019 09:48:46.84 [10960:172:0717/094846.839:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+7월 17, 2019 10:16:44.38 [10960:172:0717/101644.382:ERROR:account_info_fetcher.cc(59)] OnGetTokenFailure: Invalid credentials (credentials rejected by client).
+
+7월 23, 2019 10:13:59.94 NEW SESSION
+7월 23, 2019 10:13:59.94 [12080:12664:0723/101359.918:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+7월 23, 2019 10:13:59.98 [12080:12664:0723/101359.931:ERROR:account_info_fetcher.cc(59)] OnGetTokenFailure: Invalid credentials (credentials rejected by client).
+7월 23, 2019 17:45:03.92 [12080:14248:0723/174503.929:ERROR:platform_sensor_reader_win.cc(244)] NOT IMPLEMENTED
+7월 23, 2019 18:34:01.90 [12080:12664:0723/183401.901:ERROR:http_bridge.cc(110)] NOT IMPLEMENTED
+7월 23, 2019 18:34:01.94 [12080:3216:0723/183401.943:ERROR:browser_process_sub_thread.cc(221)] Waited 7 ms for network service
+
+7월 30, 2019 12:10:37.98 NEW SESSION
+7월 30, 2019 12:10:37.98 [16728:16628:0730/121037.979:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+7월 30, 2019 12:39:25.52 [16728:16628:0730/123925.527:ERROR:http_bridge.cc(110)] NOT IMPLEMENTED
+7월 30, 2019 12:39:25.57 [16728:14540:0730/123925.573:ERROR:browser_process_sub_thread.cc(221)] Waited 16 ms for network service
+7월 30, 2019 12:39:33.58 [1532:13860:0730/123933.579:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+7월 30, 2019 13:06:30.35 [1532:13860:0730/130630.355:ERROR:http_bridge.cc(110)] NOT IMPLEMENTED
+7월 30, 2019 13:06:30.40 [1532:8984:0730/130630.407:ERROR:browser_process_sub_thread.cc(221)] Waited 20 ms for network service
+7월 30, 2019 13:06:34.92 [16604:3736:0730/130634.922:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+7월 30, 2019 18:37:03.67 [16604:3736:0730/183703.676:ERROR:http_bridge.cc(110)] NOT IMPLEMENTED
+7월 30, 2019 18:37:03.71 [16604:9408:0730/183703.717:ERROR:browser_process_sub_thread.cc(221)] Waited 7 ms for network service
+
+7월 31, 2019 08:25:17.77 NEW SESSION
+7월 31, 2019 08:25:17.77 [3676:6204:0731/082517.773:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+7월 31, 2019 09:39:51.52 [3676:6204:0731/093951.526:ERROR:account_info_fetcher.cc(59)] OnGetTokenFailure: Invalid credentials (credentials rejected by client).
+
+8월 02, 2019 10:43:28.55 NEW SESSION
+8월 02, 2019 10:43:28.55 [10720:4800:0802/104328.550:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+8월 02, 2019 10:43:28.55 [10720:4800:0802/104328.550:ERROR:account_info_fetcher.cc(59)] OnGetTokenFailure: Invalid credentials (credentials rejected by client).
+
+8월 06, 2019 20:00:29.77 NEW SESSION
+8월 06, 2019 20:00:29.77 [2180:13080:0806/200029.769:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+8월 06, 2019 20:01:59.94 [2180:13080:0806/200159.945:ERROR:http_bridge.cc(110)] NOT IMPLEMENTED
+8월 06, 2019 20:02:00.05 [2180:16048:0806/200200.051:ERROR:browser_process_sub_thread.cc(221)] Waited 47 ms for network service
+
+8월 07, 2019 10:29:54.55 NEW SESSION
+8월 07, 2019 10:29:54.55 [10352:5660:0807/102954.537:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+8월 07, 2019 10:29:54.56 [10352:5660:0807/102954.538:ERROR:account_info_fetcher.cc(59)] OnGetTokenFailure: Invalid credentials (credentials rejected by client).
+8월 07, 2019 15:49:41.08 [10352:5660:0807/154941.080:ERROR:http_bridge.cc(110)] NOT IMPLEMENTED
+8월 07, 2019 15:49:41.13 [10352:12256:0807/154941.136:ERROR:browser_process_sub_thread.cc(221)] Waited 15 ms for network service
+8월 07, 2019 15:49:48.15 [7160:10016:0807/154948.157:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+8월 07, 2019 18:43:21.51 [7160:10016:0807/184321.511:ERROR:http_bridge.cc(110)] NOT IMPLEMENTED
+8월 07, 2019 18:43:21.56 [7160:16608:0807/184321.564:ERROR:browser_process_sub_thread.cc(221)] Waited 20 ms for network service
+8월 07, 2019 18:43:30.60 [3752:10864:0807/184330.593:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+8월 07, 2019 18:46:56.14 [3752:10864:0807/184656.142:ERROR:http_bridge.cc(110)] NOT IMPLEMENTED
+8월 07, 2019 18:46:56.18 [3752:3852:0807/184656.187:ERROR:browser_process_sub_thread.cc(221)] Waited 15 ms for network service
+8월 07, 2019 18:47:08.95 [14796:15196:0807/184708.952:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+
+8월 08, 2019 08:51:23.57 NEW SESSION
+8월 08, 2019 08:51:23.57 [1316:13420:0808/085123.570:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+8월 08, 2019 10:29:54.51 [1316:13420:0808/102954.511:ERROR:account_info_fetcher.cc(59)] OnGetTokenFailure: Invalid credentials (credentials rejected by client).
+8월 08, 2019 15:12:20.40 [1316:11584:0808/151220.404:ERROR:browser_process_sub_thread.cc(203)] Waited 16 ms for network service
+8월 08, 2019 17:30:07.17 [17232:15752:0808/173007.178:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+
+8월 12, 2019 09:38:26.59 NEW SESSION
+8월 12, 2019 09:38:26.59 [15012:6984:0812/093826.597:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+8월 12, 2019 09:38:26.61 [15012:6984:0812/093826.597:ERROR:account_info_fetcher.cc(59)] OnGetTokenFailure: Invalid credentials (credentials rejected by client).
+8월 12, 2019 10:45:34.09 [15012:16048:0812/104534.090:ERROR:browser_process_sub_thread.cc(203)] Waited 19 ms for network service
+8월 12, 2019 13:04:48.46 [8256:10252:0812/130448.459:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+8월 12, 2019 14:03:49.70 [8256:14532:0812/140349.703:ERROR:browser_process_sub_thread.cc(203)] Waited 6 ms for network service
+
+8월 28, 2019 09:30:43.06 NEW SESSION
+8월 28, 2019 09:30:43.06 [10444:10076:0828/093043.064:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+8월 28, 2019 10:10:11.42 [10444:10076:0828/101011.429:ERROR:account_info_fetcher.cc(59)] OnGetTokenFailure: Invalid credentials (credentials rejected by client).
+8월 28, 2019 17:16:53.02 [10444:13340:0828/171653.025:ERROR:mcs_client.cc(754)] Received close command, resetting connection.
+8월 28, 2019 18:57:20.91 [10444:13340:0828/185720.911:ERROR:browser_process_sub_thread.cc(203)] Waited 10000 ms for network service

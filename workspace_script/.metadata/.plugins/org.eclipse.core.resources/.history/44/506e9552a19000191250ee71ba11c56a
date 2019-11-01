@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- 
+DOM을 지원하는 API학습 
+DOM API를 활용하여 html태그를 추가, 삭제, 변경 처리할 수 있다.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM-textContent</title>
+</head>
+<body>
+<script type="text/javascript">
+	window.onload = function(){//익명함수
+		var output='';
+		output+= '<ul>';
+		output+= '<li>메뉴 1</li>';
+		output+= '<li>메뉴 2</li>';
+		output+= '<li>메뉴 3</li>';
+		output+= '</ul>';
+		document.body.textContent = output;
+		document.body.textContent = "<h1>Document Object Model</h1>";
+	}
+</script>
+</body>
+</html>
+
+
+
+

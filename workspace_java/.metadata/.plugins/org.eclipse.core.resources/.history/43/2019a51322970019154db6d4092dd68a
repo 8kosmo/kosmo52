@@ -1,0 +1,19 @@
+package com.network1;
+
+import javax.swing.text.SimpleAttributeSet;
+
+public class TalkClientThread extends Thread {
+	//TalkClientThread에서 TalkClient 원본을 참조하기 위해서 선언
+	//생성자에서 초기화를 함.
+	TalkClient tc = null;
+	public TalkClientThread(TalkClient tc) {
+		this.tc = tc;
+	}
+	public SimpleAttributeSet makeAttribute() {
+		SimpleAttributeSet sas = new SimpleAttributeSet();
+		return sas;
+	}
+	public void run() {
+		
+	}
+}

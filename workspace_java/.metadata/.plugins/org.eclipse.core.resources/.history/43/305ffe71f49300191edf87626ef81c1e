@@ -1,0 +1,19 @@
+package com.network;
+
+import java.io.PrintWriter;
+
+public class ServerThread extends Thread {
+	//insert here
+	//Thread는 경합으로 인해 항시 인터셉트가 발생할 수 있으므로
+	//반드시 예외처리해야함.
+	@Override
+	public void run() {
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		PrintWriter out = 
+				new PrintWriter(socket.getOutputStream(),true);
+	}
+}

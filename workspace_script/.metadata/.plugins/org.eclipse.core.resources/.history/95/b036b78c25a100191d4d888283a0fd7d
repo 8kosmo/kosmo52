@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>구글맵 서비스 API 활용</title>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key="></script>
+</head>
+<body>
+	<div id="map" style="height: 500px;"></div>
+	<script type="text/javascript">
+	
+	</script>
+</body>
+</html>

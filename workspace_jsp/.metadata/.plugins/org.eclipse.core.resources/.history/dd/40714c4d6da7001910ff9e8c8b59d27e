@@ -1,0 +1,30 @@
+package com.ch05;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+public class MemberServlet extends HttpServlet {
+	Logger logger = Logger.getLogger(MemberServlet.class);
+	public void service(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException{
+		//insert here - DAO객체를 주입하시오.
+		
+		req.setAttribute("memList", memList);
+		//이동할 페이지 이름을 작성하시오.
+		RequestDispatcher view = req.getRequestDispatcher("?");
+		view.forward(req, res);
+	}
+	public void doGet(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException{
+		service(req,res);
+	}
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException{
+		service(req,res);
+	}	
+}

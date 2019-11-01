@@ -1,0 +1,19 @@
+package com.test;
+
+import org.apache.log4j.Logger;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
+
+public class MemberController extends MultiActionController {
+	Logger logger = Logger.getLogger(MemberController.class);
+	public MemberLogic memberLogic = null;
+	public void setMemberLogic(MemberLogic memberLogic) {
+		this.memberLogic = memberLogic;
+	}
+	public ModelAndView memberList() {
+		logger.info("memberList 호출 성공");
+		ModelAndView mav = new ModelAndView();
+		memberLogic.memberList();
+		return mav;
+	}
+}

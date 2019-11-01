@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문제1</title>
+<%@include file="../common/JEasyUICommon.jsp" %>
+</head>
+<body>
+<div class="easyui-panel" title="문제1" style="width:600px;height:100px"
+			data-options="fit:true,border:true,footer:#footer">
+	<div>
+	문제1. DML구문 중에서 성격이 다른 하나를 고르시오.
+	</div>
+	<div style="margin-bottom:20px"></div>
+	<input class="easyui-checkbox" name="fruit" value="Orange">
+	1.INSERT
+	<div style="margin-bottom:10px"></div>
+	<input class="easyui-checkbox" name="fruit" value="Orange">
+	2.SELECT
+	<div style="margin-bottom:10px"></div>
+	<input class="easyui-checkbox" name="fruit" value="Orange">
+	3.UPDATE
+	<div style="margin-bottom:10px"></div>
+	<input class="easyui-checkbox" name="fruit" value="Orange">
+	4.DELETE
+	<div style="margin-bottom:10px"></div>
+</div>	
+<div id="footer" style="padding:5px;">
+        Footer Content.
+</div>
+</body>
+</html>

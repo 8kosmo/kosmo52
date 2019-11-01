@@ -1,0 +1,77 @@
+CREATE OR REPLACE PROCEDURE SCOTT.proc_login
+(p_id IN varchar2, p_pw IN varchar2
+, msg OUT varchar2, r_status OUT varchar2, rc_texam OUT sys_refcursor)
+IS
+BEGIN
+     SELECT NVL((SELECT mem_id FROM member 
+                 WHERE mem_id=p_id),'-1') into r_status
+       FROM dual; 
+   if r_status=p_id then
+     SELECT NVL((SELECT mem_name
+                  FROM member
+                 WHERE mem_id=p_id AND mem_pw=p_pw),'비밀번호가 틀립니다.') into msg
+       FROM dual;              
+   elsif r_status='-1' then
+    msg:='아이디가 존재하지 않습니다.';
+   end if; 
+   if p_id=r_status then
+        open rc_texam
+            for SELECT sub_cd, exam_no
+                     , exam_date, reg_date
+                  FROM take_examination
+                 WHERE mem_id=r_status;
+   end if;
+END;
+/
+
+
+
+
+
+
+
+
+C:\Users\kosmo05-teacher>sqlplus scott/tiger@192.168.0.244:1521/orcl11
+
+SQL*Plus: Release 11.1.0.7.0 - Production on 금 7월 26 14:53:38 2019
+
+Copyright (c) 1982, 2008, Oracle.  All rights reserved.
+
+
+다음에 접속됨:
+Oracle Database 11g Enterprise Edition Release 11.1.0.7.0 - Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> variable msg varchar2(300);
+SQL> variable r_status varchar2(300);
+SQL> variable rc_texam refcursor;
+SQL> exec proc_login('test','123',:msg,:r_status,:rc_texam);
+
+PL/SQL 처리가 정상적으로 완료되었습니다.
+
+SQL> print msg;
+
+MSG
+--------------------------------------------------------------------------------
+이순신
+
+SQL> print r_status;
+
+R_STATUS
+--------------------------------------------------------------------------------
+test
+
+SQL> print rc_texam;
+
+    SUB_CD EXAM_NO    EXAM_DATE
+---------- ---------- ------------------------------
+REG_DATE
+------------------------------
+      1002 1907250029 2019-07-17
+2019-07-25
+
+      1001 1907250028 2019-07-29
+2019-07-25
+
+
+SQL>

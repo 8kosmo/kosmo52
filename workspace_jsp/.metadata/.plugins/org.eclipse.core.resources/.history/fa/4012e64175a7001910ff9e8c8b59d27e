@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.List, java.util.Map" %>    
+<%
+//jsp과목 - 50%가 DB연동
+	List<Map<String,Object>> memList = 
+		(List<Map<String,Object>>)request.getAttribute("memList");
+	int size = 0;
+	if(memList!=null){
+		size = memList.size();//이 순간에 NullPointerException
+	}
+%>    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원목록</title>
+</head>
+<body>
+<!-- 조회 결과가 있니? if문 -->
+<!-- 네라면 반복문 처리 -->
+<%
+	if(size>0){
+		for(){
+%>			
+			//데이터 출력 - <tr><td>
+<%			
+		}
+%>
+
+<%
+	}
+	else{
+%>
+
+<%
+	}
+%>
+<!-- 조회 결과가 없을 땐 조회 결과가 없습니다 출력 -->
+</body>
+</html>
+
+
+
+
+
+

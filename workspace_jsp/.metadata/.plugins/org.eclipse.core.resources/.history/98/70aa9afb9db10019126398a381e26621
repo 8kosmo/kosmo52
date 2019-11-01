@@ -1,0 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="com.mvc1.MemberDao" %>    
+<%
+	MemberDao mDao = new MemberDao();
+	MemberVO mVO = new MemberVO();
+	mDao.my_proc(mVO);
+	out.print(mVO);
+%>

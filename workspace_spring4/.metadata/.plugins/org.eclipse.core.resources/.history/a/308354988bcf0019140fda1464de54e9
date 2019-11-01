@@ -1,0 +1,10 @@
+package com.security;
+//@Service
+public class LoginLogic {
+	//@Autowired
+	private LoginDao loginDao = null;
+	public void setLoginDao(LoginDao loginDao) {
+		this.loginDao = loginDao;
+	}
+	
+}

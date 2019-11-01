@@ -1,0 +1,19 @@
+package com.test;
+
+import java.util.List;
+import java.util.Map;
+
+import org.mybatis.spring.SqlSessionTemplate;
+
+public class MemberDao {
+	public SqlSessionTemplate sqlSessionTemplate = null;
+	public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
+		this.sqlSessionTemplate = sqlSessionTemplate;
+	}
+	public void memberList() {
+		List<Map<String,Object>> memList = null;
+		memList = sqlSessionTemplate.selectList("memberList");
+		
+	}
+	
+}

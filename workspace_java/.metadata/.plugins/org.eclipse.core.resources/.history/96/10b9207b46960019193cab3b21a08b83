@@ -1,0 +1,12 @@
+package com.thread;
+class ATM implements Runnable{
+	
+}
+public class SynchronizedEx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

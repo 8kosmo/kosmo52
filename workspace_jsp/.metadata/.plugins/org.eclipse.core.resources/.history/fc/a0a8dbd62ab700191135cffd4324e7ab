@@ -1,0 +1,47 @@
+package com.mvc2;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+public class BoardController implements Controller {
+	Logger logger = Logger.getLogger(BoardController.class);
+	String path = null;
+	String requestName = null;
+	String crud = null;
+	BoardLogic bLogic = null;
+	public BoardController(String requestName, String crud) {
+		this.requestName = requestName;
+		this.crud = crud;
+		bLogic = new BoardLogic();
+	}
+
+	@Override
+	public String execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		logger.info("execute호출 성공");
+		if("boardList".equals(crud)) {
+			logger.info("목록 조회");
+			path = "";
+			
+		}else if("boardDetail".equals(crud)) {
+			logger.info("상세 조회");
+			path = "";
+			
+		}else if("boardAdd".equals(crud)) {
+			logger.info("입력");
+			path = "";
+			
+		}else if("boardUpd".equals(crud)) {
+			logger.info("수정");
+			path = "";
+			
+		}else if("boardDel".equals(crud)) {
+			logger.info("삭제");
+			path = "";
+			
+		}
+		return path;
+	}
+
+}

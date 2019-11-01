@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TERGYM</string>
+    <string name="nav_open_drawer">Open navigation drawer</string>
+    <string name="nav_close_drawer">Close navigation drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="nav_login">로그인</string>
+    <string name="nav_pt">PT수업</string>
+    <string name="nav_spinning">스피닝수업</string>
+    <string name="nav_yoga">요가수업</string>
+    <string name="nav_support">Support</string>
+    <string name="nav_help">Help</string>
+</resources>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM활용 - 매초마다 갱신처리</title>
+</head>
+<body>
+	<h1 id='news'></h1>
+	<script type="text/javascript">
+		window.onload = function(){
+			var news = document.getElementById('news');
+			//매 1초마다 함수를 실행한다.
+			setInterval(function (){
+				news.innerHTML = new Date().toString();
+			},2000);
+		}
+	</script>
+</body>
+</html>

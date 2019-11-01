@@ -1,0 +1,13 @@
+package com.erp;
+
+import com.vo.EmpVO;
+
+public class EmpLogic {
+	public DeptDao deptDao = null;
+	public EmpDao empDao = null;
+	public void doEmp(EmpVO eVO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

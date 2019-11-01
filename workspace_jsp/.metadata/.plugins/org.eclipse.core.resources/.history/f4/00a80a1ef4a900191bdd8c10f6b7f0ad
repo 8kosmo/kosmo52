@@ -1,0 +1,15 @@
+package com.mvc1;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.vo.ZipCodeVO;
+
+public class ZipCodeDao {
+	Logger logger = Logger.getLogger(ZipCodeDao.class);
+	public List<ZipCodeVO> zipcodeList() {
+		List<ZipCodeVO> zipcodeList = null;
+		
+	}
+}

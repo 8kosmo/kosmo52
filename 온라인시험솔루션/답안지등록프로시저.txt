@@ -1,0 +1,9 @@
+CREATE OR REPLACE PROCEDURE proc_exampaper
+(exam_no in varchar,dap1 in number,dap2 in number
+,dap3 in number,dap4 in number)
+IS
+BEGIN
+    INSERT INTO exam_paper(exam_no,dap1,dap2
+                         ,dap3,dap4)
+         VALUES(exam_no,dap1,dap2,dap3,dap4);
+END;

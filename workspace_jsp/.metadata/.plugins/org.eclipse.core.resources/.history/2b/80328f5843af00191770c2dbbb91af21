@@ -1,0 +1,21 @@
+package com.mvc1;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+public class MyProcSimulation {
+	SqlSessionFactory sqlSessionFactory = null;
+	
+	public static void main(String[] args) {
+		try {
+			SqlSession sqlSession = sqlSessionFactory.openSession();
+/*
+ * 저장프로시저의 특이사항은 파라미터로 넘긴 주소번지의 out속성의 값이 담긴다는 사실이다.			
+ */
+			sqlSession.selectOne("proc_login",pmVO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

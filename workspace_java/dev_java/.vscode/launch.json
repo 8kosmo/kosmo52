@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - WaitNotifyEx",
+            "request": "launch",
+            "mainClass": "com.thread.WaitNotifyEx",
+            "projectName": "dev_java"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AddressBook",
+            "request": "launch",
+            "mainClass": "com.address.AddressBook",
+            "projectName": "dev_java"
+        }
+    ]
+}

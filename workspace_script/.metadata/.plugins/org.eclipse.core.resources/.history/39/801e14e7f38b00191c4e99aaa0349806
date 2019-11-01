@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>입력태그 - (폼전송:서버로 전송)</title>
+</head>
+<body>
+<!-- 폼태그  -->
+	<form name="f_addr" method="get" action="./addressBookAction.html">
+		<table align="center" width="700px" border="1" borderColor="orange">
+			<tr>
+				<td><label>아이디</label></td>
+				<td><input type="text" id="mem_id" size="12"></td>
+			</tr>
+			<tr>
+				<td><label>비밀번호</label></td>
+				<td><input type="password" id="mem_pw" size="12"></td>			
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+package com.ch3;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class PetServlet extends HttpServlet {
+	public void service(HttpServletRequest req, HttpServletResponse res)
+	throws ServletException{
+		
+	}
+	public void doGet(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException{
+		service(req,res);
+	}
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException{
+		service(req,res);
+	}
+}

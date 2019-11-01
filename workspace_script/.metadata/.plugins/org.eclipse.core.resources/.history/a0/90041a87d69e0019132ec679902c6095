@@ -1,0 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="com.util.DBConnectionMgr" %>    
+<%@ page import="java.sql.Connection" %>    
+<%@ page import="java.sql.CallableStatement" %>    
+<%
+//물리적으로 떨어져 있는 서버에 연결 통로 확보하기
+	Connection con = DBConnectionMgr.getConnection();
+
+	
+%>

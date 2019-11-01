@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+head영역에는 CSS소스를 추가하거나 Javascript소스를 추가할 수 있다. 
+head영역에는 title태그를 사용할 수 있다.
+브라우저의 역할
+html 문서에 대한 인터프리터의 역할(통역)
+태그는 출력 하지 않고 내용부분만 내보냄.
+특징
+컴파일을 하지 않아요. - 문법체크를 안해 - 오타
+런타임시에 모든게 결정
+에러잡기 불편해
+java언어보다는 완성도 떨어짐.
+
+태그는 열린태그와 닫힌 태그로 이루어짐.
+태그는 중첩되게 사용할 수 있다.
+태그안에 속성을 정의하고 속성에 대응하는 값을 줄 수 있다.
+
+태그 사용규칙
+- 대소문자를 구분하지 않는다.
+- 종료태그 사용시에는 반드시 </태그이름>
+- 태그안에서 띄어쓰기 금함.
+- 시작태그와 종료태그 사이에는 중첩하여 태그를 사용가능
+- 브라우저가 해석하지 못하는 태그는 무시되거나 에러발생
+
+-->
+<head>
+<meta charset="EUC-KR">
+<meta name="title" content="처음 보는  html">
+<meta name="date" content="2019-06-04">
+<meta name="author" content="김유신">
+<meta name="keyword" content="html,css,javascript">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 화면처리내용을 볼 수 있다. -->
+html<br>
+css<br>
+javascript
+<h1>처음 보는 html</h1>
+문자열 <!-- 태그이름은 없고 값이긴 하다. -->
+<li><font color="red" size="12" face="궁서체">문  자 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;열</font></li>
+<hr>
+특수문자
+&lt; - &gt; - &quot; - &amp;
+<a href="https://www.naver.com">네이버</a>
+<br>
+<!-- 
+	url(Uniform Resource Locator) 경로
+	1)절대경로 - 프로토콜 부터 도메인(ip주소) 그리고 폴더이름 페이지이름
+	2)상대경로 - 현재 내가 있는 곳을 기준으로 경로를 쓴다.
+ -->
+<a href="./index.html">서버테스트 페이지</a>
+</body>
+</html>
+
+
+
+
+
+
+
+

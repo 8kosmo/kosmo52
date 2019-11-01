@@ -1,0 +1,25 @@
+1)오라클 서버에 팀별 계정을 만들어 봐요
+- 계정에 사용할 id와 pw을 정해 보세요.
+
+2)계정이 사용할 물리적인 공간을 추가합시다.
+- 테이블 스페이스이름을 정하세요.
+
+테이블 스페이스 추가하는 구문은 아래참조
+
+create tablespace ts_이름
+datafile
+'C:\app\kosmo_02\oradata\orcl11\이름.dbf'
+size 100M;
+
+create user 계정이름 identified by 비번
+default tablespace ts_이름;
+
+grant create session to 계정이름 with admin option;
+
+grant create table to 계정이름 with admin option;
+
+grant create view to 계정이름
+
+grant create sequence to 계정이름
+
+

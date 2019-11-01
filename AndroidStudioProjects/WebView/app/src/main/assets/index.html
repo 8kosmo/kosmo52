@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>모바일 웹페이지</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        function test(){
+            var data = window.android.getEmpList();
+            $("#d_msg").text("test함수 호출 성공===>"+data);
+        }
+    </script>
+</head>
+<body>
+<font color="red">index.html</font>페이지 입니다.
+<table border="1">
+    <tr><th width="120px">아이디</th><th width="150px">이름</th></tr>
+    <tr><th>test</th><th>강감찬</th></tr>
+    <tr><th>apple</th><th>사과</th></tr>
+    <tr><th>fresh</th><th>나신입</th></tr>
+</table>
+<input type="button" onclick="test()" value="테스트">
+<div id="d_msg"></div>
+</body>
+</html>

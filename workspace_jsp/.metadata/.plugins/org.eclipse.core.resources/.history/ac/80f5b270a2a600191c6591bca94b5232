@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>A.jsp</title>
+</head>
+<body>
+<%
+	String name="john";
+	//요청에 객체에 담기
+    request.setAttribute("name", name);
+	//response.sendRedirect("B.jsp");//이동
+	
+	view.forward(request,res);
+	//주소가 변경됨 - 기존에 요청이 끊어지고 새로운 요청이 응답
+	//request객체가 같은 원본이 아니다.
+%>
+여기
+</body>
+</html>
+
+
+
+
+
+
+

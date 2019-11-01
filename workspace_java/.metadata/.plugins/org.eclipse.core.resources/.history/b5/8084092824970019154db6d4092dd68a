@@ -1,0 +1,47 @@
+package com.network1;
+
+import java.util.StringTokenizer;
+
+import javax.swing.text.SimpleAttributeSet;
+
+public class TalkClientThread extends Thread {
+	//TalkClientThread에서 TalkClient 원본을 참조하기 위해서 선언
+	//생성자에서 초기화를 함.
+	TalkClient tc = null;
+	public TalkClientThread(TalkClient tc) {
+		this.tc = tc;
+	}
+	public SimpleAttributeSet makeAttribute() {
+		SimpleAttributeSet sas = new SimpleAttributeSet();
+		return sas;
+	}
+	public void run() {
+		String msg = null;
+		boolean isStop = false;
+		while(!isStop) {
+			try {
+				msg = (String)tc.ois.readObject();
+				StringTokenizer st = null;
+				int protocol = 0;
+				if(msg!=null) {
+					st = new StringTokenizer(msg,Protocol.seperator);
+					protocol = Integer.parseInt(st.nextToken());
+				}
+				switch(protocol) {
+					case Protocol.ROOM_IN:{
+						
+					}break;
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+	}
+}
+
+
+
+
+
+
+

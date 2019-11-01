@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <h1>jquery적용</h1>
+<script>
+/* $ jquery(document) */
+    $(document).ready(function(){
+        document.write("<span>테스트</span>");
+    });    
+</script>
+</body>
+</html>

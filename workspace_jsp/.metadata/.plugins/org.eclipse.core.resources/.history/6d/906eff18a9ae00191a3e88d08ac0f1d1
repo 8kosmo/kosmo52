@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<%@ include file="../common/JEasyUICommon.jsp" %>
+</head>
+<body>
+<script type="text/javascript">
+	$.fn.datebox.defaults.formatter = function(date){
+		var y = date.getFullYear();
+		var m = date.getMonth()+1;
+		var d = date.getDate();
+		return y+'-'+(m<10 ?('0'+m):m)+'-'+(d<10?('0'+d):d);
+	}
+	$.fn.datebox.defaults.parser = function(s){
+		var t = Date.parse(s);
+		if (!isNaN(t)){
+			return new Date(t);
+		} else {
+			return new Date();
+		}
+	}
+	$(document).ready(function(){
+		
+	});
+</script>
+</body>
+</html>

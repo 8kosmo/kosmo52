@@ -1,0 +1,14 @@
+t_giftpoint a, t_giftmem b
+
+a.보유포인트 >= b.적용포인트
+
+
+(a.보유포인트 - b.적용포인트) >=0
+
+b.point_nu >= a.point_nu
+
+from t_giftpoint a, t_giftmem b
+
+컬럼명 출력
+
+누가(b), 보유하고 포인트(b),사용포인트(a),잔여포인트(보유포인트-사용포인트)

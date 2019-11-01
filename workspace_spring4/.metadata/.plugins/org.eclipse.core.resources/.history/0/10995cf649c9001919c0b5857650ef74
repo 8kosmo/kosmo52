@@ -1,0 +1,65 @@
+package com.sts3.board;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.vo.BoardMasterVO;
+@Service
+public class BoardLogic {
+	Logger logger = Logger.getLogger(BoardLogic.class);
+	@Autowired
+	private BoardDao boardDao = null;
+	int total = 0;
+	public int getTot(BoardMasterVO bmVO) {
+		total = 0;
+		total = boardDao.getTotal(bmVO);
+		return total;
+	}	
+	public List<Map<String,Object>> boardList(Map<String, Object> pMap) {
+		logger.info("boardList 호출 성공");
+		List<Map<String,Object>> boardList = null;
+		BoardMasterVO bmVO = new BoardMasterVO();
+		total = getTot(bmVO);
+		//현재 바라보는 페이지 번호
+		int pageNumber = 0;//2
+		//한 페이지에 뿌려질 수
+		int pageSize = 0;//2
+		//시작 번호
+		int start = 0;
+		//끝 번호
+		int end = 0;
+		String spageNumber = "";
+		/*
+		 * VO로 값을 받아서 전달할땐 타입체크를 따로 하지 않아도 되지만
+		 * Map으로 받아서 처리할 땐 타입체크를 해야 함.
+		 * 조인시에는 Map을 사용하는 것이 좋겠고 (왜냐하면 파라미터에 주소번지 하나만 넘기면 되니깐..)
+		 * 테이블이 한  개 경우일땐 VO를 사용하는게 좋을 것이다.
+		 */
+		if(pMap.get("pageNumber")!=null) {
+			spageNumber = pMap.get("pageNumber").toString();
+			pageNumber=Integer.parseInt(spageNumber);
+		}
+		String spageSize = "";
+		if(pMap.get("pageSize")!=null) {
+			spageSize = pMap.get("pageSize").toString();
+			pageSize=Integer.parseInt(spageSize);
+		}
+		if(pageNumber>0) {
+			start = ((pageNumber-1)*pageSize)+1;
+			end = pageNumber * pageSize;
+			pMap.put("start",start);
+			if(end > total) {
+				pMap.put("end",total);
+			}else {
+				pMap.put("end",end);
+			}
+		}
+		boardList = boardDao.boardList(pMap);
+		return boardList;
+	}
+
+}

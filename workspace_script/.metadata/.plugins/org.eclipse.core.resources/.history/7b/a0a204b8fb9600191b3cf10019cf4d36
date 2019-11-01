@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/themes/default/easyui.css">
+<!-- icon.css는 아이콘 이미지 처리하는데 사용됨 -->   
+<link rel="stylesheet" type="text/css" href="/themes/icon.css">
+<!-- jeasyui 데모페이지에 사용되는 css임 -->
+<link rel="stylesheet" type="text/css" href="/demo/demo.css">
+<!-- jeasyui가 jquery기반이므로 호환성을 검증한 스크립트 코드만 따로 모아둠. -->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<!-- 
+jeasyui가 jquery기반이므로 아래 파일을 import하기 전에 반드시 jquery.min.js
+   가 import되어 있어야 함. 순서 반드시 지킬것. 
+ -->
+<script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+</head>
+<body>
+<script>
+    $(document).ready(function (){
+        $("#cb_dname").combobox({
+            data: [
+		        {deptno:10, dname:'인사부'},
+		        {deptno:20, dname:'영업부'}
+            ]
+           ,valueField:'deptno'
+           ,textField:'dname'
+        });
+    });
+</script>
+<form id="f_combo">
+    <input class="easyui-combobox" id="cb_dname" name="cb_name">
+    <button onclick="send()">전송</button>
+</form>
+</body>
+</html>

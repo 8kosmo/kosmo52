@@ -1,0 +1,20 @@
+CREATE OR REPLACE PROCEDURE SCOTT.proc_login
+(p_id IN varchar2, p_pw IN varchar2
+, msg OUT varchar2, r_status OUT varchar2)
+IS
+BEGIN
+     SELECT NVL((SELECT mem_id FROM member 
+                 WHERE mem_id=p_id),'-1') into r_status
+       FROM dual; 
+   if r_status=p_id then
+     SELECT NVL((SELECT mem_name
+                  FROM member
+                 WHERE mem_id=p_id AND mem_pw=p_pw),'비밀번호가 틀립니다.') into msg
+       FROM dual;              
+   elsif r_status='-1' then
+    msg:='아이디가 존재하지 않습니다.';
+   end if; 
+END;
+/
+
+/

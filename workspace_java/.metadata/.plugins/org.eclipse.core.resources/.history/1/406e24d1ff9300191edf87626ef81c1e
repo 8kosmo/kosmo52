@@ -1,0 +1,12 @@
+package com.network;
+
+import java.net.Socket;
+
+public class TimeClientVer2 {
+	Socket client = null;//내가 필요한 소켓정보 하나만....
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

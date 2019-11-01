@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.mapper.MemberMapper">
+	<parameterMap type="java.util.Map" id="pMap">
+		<parameter mode="IN" property="mem_id"/>
+	</parameterMap>
+	<resultMap type="java.util.Map" id="rMap">
+		<parameter mode="IN" property="mem_id"/>
+	</resultMap>
+	<select id="memberList" parameterType="map" resultType="map">
+		SELECT mem_id, mem_pw, mem_name, mem_addr
+		     , mem_zipcode 
+		  FROM member	
+	</select>
+	<insert id="memberAdd" parameterType="map">
+		INSERT INTO member(mem_id,mem_pw,mem_name,mem_addr,mem_zipcode)
+		            		SELECT
+		            		       'nara','123','이순신'
+		            		      ,'서울시 영등포구 당산6가','20504'
+		            		  FROM dual
+	</insert>
+	<select id="login" parameterType="map" resultType="string">
+		SELECT NVL((SELECT mem_name
+		  			  FROM member	
+		             WHERE mem_id=#{mem_id}
+		               AND mem_pw=#{mem_pw}
+		          ),'로그인실패') mem_name
+		  FROM dual         
+	</select>
+</mapper>

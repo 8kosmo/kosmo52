@@ -1,0 +1,78 @@
+package com.network1;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+//클라이언트측에서는 Runnable하지 않았다. - 단일스레드이다.
+//why? - 경합,선택에 따른 지속적인 서비스
+public class TalkClient extends JFrame implements ActionListener{
+	//속지 세장 추가하기
+	JPanel 		jp_center 		= new JPanel();
+	JPanel 		jp_east 		= new JPanel();
+	JPanel 		jp_east_south 	= new JPanel();
+	//메세지 내역 출력  - 비활성함. -이벤트처리 필요없음
+	JTextArea 	jta_display 	= new JTextArea(12,30);
+	JScrollPane jsp_display		= new JScrollPane(jta_display
+			                                     ,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
+			                                     ,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+	//메시지 전송할 때 - 이벤트처리 필요함
+	JTextField  jtf_msg			= new JTextField("메시지를 입력하세요.");
+	String cols[] = {"닉네임"};
+	String data[][] = new String[0][1];
+	//실제 정보를 담을 객체
+	DefaultTableModel dtm_name	= new DefaultTableModel(data,cols);
+	//화면을 처리해줄 객체
+	JTable 	          jtb_name  	= new JTable(dtm_name);
+	JScrollPane       jsp_name  	= new JScrollPane(jtb_name);
+	JButton           jbtn_whisper 	= new JButton("1:1대화");
+	JButton           jbtn_change 	= new JButton("대화명변경");
+	JButton           jbtn_blank 	= new JButton("미결");
+	JButton           jbtn_exit 	= new JButton("종료");
+	public TalkClient() {
+		
+	}
+	public void initDisplay() {
+		jp_center.setLayout(new BorderLayout());
+		jp_center.add("Center",jsp_display);
+		jp_center.add("South", jtf_msg);
+		jp_east.setLayout(new BorderLayout());
+		jp_east.add("Center",jsp_name);
+		jp_east_south.setLayout(new GridLayout(2,2));
+		jp_east_south.add(jbtn_whisper);
+		jp_east_south.add(jbtn_change);
+		jp_east_south.add(jbtn_blank);
+		jp_east_south.add(jbtn_exit);
+		jp_east.add("South", jp_east_south);
+		this.add("Center",jp_center);
+		this.add("East",jp_east);
+		this.setSize(500, 600);
+		this.setVisible(true);
+	}
+	public void exitChat() {
+		
+	}
+	public void message_process(String msg) {
+		
+	}
+	public static void main(String[] args) {
+		TalkClient tc = new TalkClient();
+		tc.initDisplay();
+	}
+	//말하기 인가? 아님 듣기 인가?
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		
+	}
+
+}

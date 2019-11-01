@@ -1,0 +1,6 @@
+<script>
+    var str="자바";
+  	for(i=0;i<str.length;i++){
+  		
+  	}
+</script>

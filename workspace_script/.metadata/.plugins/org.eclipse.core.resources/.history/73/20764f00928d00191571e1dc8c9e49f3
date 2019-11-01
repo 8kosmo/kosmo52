@@ -1,0 +1,9 @@
+<script>
+    var code;
+    code = "가".charCodeAt(0);
+    document.write(code,"<br>","가".charCode());
+    code = "나".charCodeAt(0);
+    document.write(code,"<br>");
+    code = "다".charCodeAt(0);
+    document.write(code,"<br>");
+</script>

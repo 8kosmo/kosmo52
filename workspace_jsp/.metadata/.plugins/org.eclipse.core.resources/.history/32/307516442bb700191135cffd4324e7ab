@@ -1,0 +1,28 @@
+package com.mvc2;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+
+import com.vo.BoardMasterVO;
+
+public class BoardLogic {
+	Logger logger = Logger.getLogger(BoardLogic.class);
+	BoardDao bDao = null;
+	public BoardLogic() {
+		bDao = new BoardDao();
+	}
+	public List<Map<String,Object>> boardList(BoardMasterVO bmVO){
+		logger.info("boardList 호출 성공");
+		List<Map<String,Object>> boardList = null;
+		
+		return boardList;
+	}
+	public int boardAdd(BoardMasterVO bmVO){
+		logger.info("boardList 호출 성공");
+		List<Map<String,Object>> boardList = null;
+		
+		return boardList;
+	}
+}

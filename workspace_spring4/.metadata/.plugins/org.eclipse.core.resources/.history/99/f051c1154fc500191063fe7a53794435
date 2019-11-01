@@ -1,0 +1,15 @@
+package com.erp;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
+
+public class EmpController extends MultiActionController {
+	Logger logger = Logger.getLogger(EmpController.class);
+	public String doEmp(HttpServletRequest req,HttpServletResponse res) {
+		logger.info("doEmp 호출 성공");
+		return "redirect:empInsertOk.jsp";
+	}
+}

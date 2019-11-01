@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>주문확인서</title>
+</head>
+<body>
+<%
+	String user_name = 
+		request.getParameter("mem_name");
+    String paper = request.getParameter("paper");
+	String dep = request.getParameter("mem_addr");
+	out.print(user_name+", "+paper+", "+dep);
+%>
+</body>
+</html>

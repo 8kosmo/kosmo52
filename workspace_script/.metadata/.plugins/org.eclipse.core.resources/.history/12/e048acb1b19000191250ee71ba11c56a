@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+		* { border: 3px solid red;}
+	</style>
+</head>
+<body>
+	<h1 id="header">
+		<p id="contents">내용</p>
+	</h1>
+	<script type="text/javascript">
+		window.onload = function(){
+			document.getElementById("header").onclick=function(){
+				alert("header");
+			}
+			document.getElementById("contents").onclick=function(){
+				alert("contents");
+			}
+		}
+	</script>	
+</body>
+</html>
+
+
+
+
+
+
+

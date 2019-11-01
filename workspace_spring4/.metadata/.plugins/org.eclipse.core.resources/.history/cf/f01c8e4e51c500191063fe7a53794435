@@ -1,0 +1,10 @@
+package com.erp;
+
+public class DeptDao {
+
+	public void deptInsert(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

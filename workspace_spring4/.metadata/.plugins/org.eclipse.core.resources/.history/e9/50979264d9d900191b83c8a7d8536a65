@@ -1,0 +1,12 @@
+package com.vo;
+
+public class ScheduleVO {
+	private int    yyyy      =0;//  
+	private int    mm        =0;//  
+	private int    dd        =0;//  
+	private int    sc_seq    =0;//  
+	private String mem_id    ="";//  
+	private String content   ="";//  
+	private String attendance="";//  
+	private String closing   ="";//  
+}

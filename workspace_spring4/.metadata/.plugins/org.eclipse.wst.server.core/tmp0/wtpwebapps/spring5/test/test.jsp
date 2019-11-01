@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>MemberVO : ${mVO}</h2>
+<h2>MemberVO : ${mVO2}</h2>
+<h2>아이디 : ${mVO2.mem_id}</h2>
+<h2>비번 : ${mVO2.mem_pw}</h2>
+<h2>page : ${page}</h2>
+<h2>start : ${start}</h2>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<!-- 
+	자료형
+	1)기본자료형 - 숫자, 문자열, 정규식, boolean
+	            특수형(null, undefined)
+	2)참조자료형
+	  객체형, 배열형, 함수형
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

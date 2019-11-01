@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax_수업</title>
+<!-- 
+CSS와 JS 외부에서 import하는 경우 수정했음에도 반영이 안되는 경우 발생함.
+이럴 땐 페이지 이름 뒤에 ?붙이고 임의의 문자 추가해서 get방식의 헛점을 피해서 테스트함.
+같은 요청 건이면 브라우저가 인터셉트 함.- 서버까지 전달이 안됨.
+버퍼캐시에 저장된 정보가 그대로 출력되는 거라서 수정된 내용이 반영이 안됨.
+ -->
+    <link rel="stylesheet" type="text/css" href="/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/themes/icon.css?1">
+    <link rel="stylesheet" type="text/css" href="/demo/demo.css">
+    <script type="text/javascript" src="/js/jquery.min.js?2"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+	<script type="text/javascript">
+		function login(){
+			//insert here
+			//alert("login 호출");
+			$.ajax({
+				method:"get"
+			   ,url:"loginAction.jsp"
+			   ,success:function(data){//loginAction.jsp페이지에서 처리된 결과 반환
+				   //alert(data);//김유신님 환영합니다.
+			   	   $("#d_login").hide();
+			   	   $("#s_name").text(data);
+				   $("#d_logout").show();
+			   }
+			});///////////end of ajax
+		}/////////////////end of login
+		function logout(){
+			//insert here
+			//alert("logout 호출");
+			$("#d_login").show();
+			$("#d_logout").hide();
+		}/////////////////end of logout
+	</script>
+</head>
+<body>
+<script type="text/javascript">
+	//해당하는 페이지의 DOM구성이 완료되었을 때
+	$(document).ready(function(){
+		//로그아웃 화면을 숨김처리
+		$("#d_logout").hide();
+	});
+</script>
+<center>
+	<table width="900px" height="650px">
+<!-- top.html 시작 -->	
+		<tr>
+			<td width="900px" height="50px">
+			<table width="100%" height="100%" border="1" borderColor="orange">
+				<tr>
+					<td align="center">Ajax 수업</td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+<!-- top.html 끝 -->	
+<!-- body.html 시작 -->			
+		<tr>
+			<td width="900px" height="570px">
+			<table>
+				<tr>
+<!-- menu.html 시작 -->				
+					<td width="250px" height="570px">
+					<table width="100%" height="100%" border="1" borderColor="red">
+						<tr>
+							<td align="left" valign="top">
+							<table border="1">
+								<tr>
+									<td height="20px">
+<!--===================== 로그인 화면 시작 ======================-->	
+									<div id="d_login">	
+									<table>
+										<tr><td><input class="easyui-textbox" data-options="iconCls:'icon-man', prompt:'아이디'" style="width:170px"></td></tr>
+										<tr><td><input class="easyui-textbox" data-options="iconCls:'icon-lock', prompt:'비밀번호'" style="width:170px"></td></tr>
+										<tr><td><a id="btn" href="javascript:login()" class="easyui-linkbutton" data-options="width:170">로그인</a></td></tr>
+									</table>	
+									</div>
+<!--===================== 로그인 화면  끝   ======================-->									
+<!--===================== 로그아웃 화면 시작 =====================-->
+									<div id="d_logout">	
+									<table>
+										<tr><td><span id="s_name">Guest</span>님 환영합니다.</td></tr>
+										<tr><td><a id="btn" href="javascript:logout()" class="easyui-linkbutton" data-options="width:170">로그아웃</a></td></tr>
+									</table>	
+									</div>									
+<!--===================== 로그아웃 화면  끝   =====================-->									
+									</td>
+								</tr>
+								<tr>
+									<td height="20px">메뉴1</td>
+								</tr>
+								<tr>	
+									<td height="20px">메뉴2</td>
+								</tr>
+							</table>
+							</td>
+						</tr>
+					</table>
+					</td>
+<!-- menu.html  끝  -->				
+					
+<!-- body.html 시작 -->				
+					<td width="650px" height="570px">
+					<table width="100%" height="100%" border="1" borderColor="green">
+						<tr>
+							<td>콘텐츠</td>
+						</tr>
+					</table>					
+					</td>
+<!-- body.html  끝  -->				
+				</tr>
+			</table>
+			</td>
+		</tr>
+<!-- body.html 끝 -->			
+<!-- bottom.html 시작 -->			
+		<tr>
+			<td width="900px" height="30px">
+			<table width="100%" height="100%" border="1" borderColor="brown">
+				<tr>
+					<td align="center">한국 소프트인재 개발원</td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+<!-- bottom.html 끝 -->					
+	</table>
+</center>
+</body>
+</html>

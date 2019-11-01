@@ -1,0 +1,9 @@
+package com.security;
+
+public class LoginLogic {
+	private LoginDao loginDao = null;
+	public void setLoginDao(LoginDao loginDao) {
+		this.loginDao = loginDao;
+	}
+	
+}

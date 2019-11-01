@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSON포맷 js에서 사용하기</title>
+<%@ include file="../common/JEasyUICommon.jsp" %>
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$.ajax({
+			method:"get"
+		   ,url:"myProcTest.jsp"
+		   ,success:function(data){
+			   //alert(data);
+			   $("#d_json").text(data);
+		   }
+		});
+	});
+</script>
+<div id="d_json"></div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+package com.network;
+
+import javax.swing.JFrame;
+/*
+ * 지연이 벌어지는 상황을 직접 연출해 보기
+ * 
+ */
+public class ServerTest extends JFrame {
+	ServerSocket sSocket = null;
+	Socket null;
+	public void initDisplay() {
+		
+	}
+	public void serverInit() {
+		
+	}
+	public static void main(String[] args) {
+		ServerTest st = new ServerTest();
+		st.serverInit();
+		st.initDisplay();
+	}
+
+}

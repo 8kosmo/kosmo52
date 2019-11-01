@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=spring5/C:\/Users\/kosmo05-teacher\/.m2\/repository\/org\/springframework\/security\/spring-security-web\/5.1.6.RELEASE\/spring-security-web-5.1.6.RELEASE.jar&lt;org.springframework.security.web.access(AccessDeniedHandler.class[AccessDeniedHandler" modifiers="1537" timestamp="1567582383978"/>
+<typeInfo handle="=spring5/C:\/Users\/kosmo05-teacher\/.m2\/repository\/org\/springframework\/security\/spring-security-core\/5.1.6.RELEASE\/spring-security-core-5.1.6.RELEASE.jar&lt;org.springframework.security.access(AccessDecisionManager.class[AccessDecisionManager" modifiers="1537" timestamp="1567582383457"/>
+<typeInfo handle="=spring5/C:\/Users\/kosmo05-teacher\/.m2\/repository\/org\/springframework\/spring-webmvc\/5.1.9.RELEASE\/spring-webmvc-5.1.9.RELEASE.jar&lt;org.springframework.web.servlet(HandlerInterceptor.class[HandlerInterceptor" modifiers="1537" timestamp="1567574908798"/>
+</typeInfoHistroy>

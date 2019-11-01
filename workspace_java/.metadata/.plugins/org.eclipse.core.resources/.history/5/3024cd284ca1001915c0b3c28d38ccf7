@@ -1,0 +1,14 @@
+package com.ch15;
+
+public class RandomGame {
+
+	public static void main(String[] args) {
+		//기반스트림(단독 읽기 혹은 쓰기) - InputStreamReader
+		//보조스트림(반드시 기반스트림과 연계) - BuffredReader
+		BufferedReader br = 
+				new BufferedReader(
+						new IntputStreamReader(System.in));
+
+	}
+
+}

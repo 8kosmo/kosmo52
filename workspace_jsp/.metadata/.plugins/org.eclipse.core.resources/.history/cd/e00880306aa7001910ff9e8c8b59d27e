@@ -1,0 +1,58 @@
+package com.basic;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+//@WebServlet(urlPatterns="/hello")
+public class HelloServlet extends HttpServlet {
+	Logger logger = Logger.getLogger(HelloServlet.class);
+	public void doGet(HttpServletRequest req, HttpServletResponse res)
+	throws ServletException, IOException
+	{
+		//System.out.println("doGet");
+		//logger.info("doGet");
+		String mem_id = "test";
+		res.setContentType("text/html;charset=utf-8");
+		PrintWriter out = res.getWriter();
+		out.print("<table border='1'>");
+		out.print("<tr><td>서블릿으로 화면그리는 아니다.</td></tr>");
+		out.print("<tr><td>"+mem_id+"</td></tr>");
+		out.print("</table>");
+		//hello.do?command=insert
+		String command = req.getParameter("command");
+		if("insert".equals(command)) {//입력이니?
+			logger.info("입력선택하였음");
+		}
+		else if("update".equals(command)) {//수정이니?
+			logger.info("수정선택하였음");
+		}
+		else if("delete".equals(command)) {//삭제이니?
+			logger.info("삭제선택하였음");
+		}
+		else if("select".equals(command)) {//조회이니?
+			logger.info("조회선택하였음");
+		}
+	}
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
+	{
+		System.out.println("doPost");
+	}	
+	public void methodA(HttpServletRequest req, HttpServletResponse res) {
+		
+	}
+}
+
+
+
+
+
+
+
+

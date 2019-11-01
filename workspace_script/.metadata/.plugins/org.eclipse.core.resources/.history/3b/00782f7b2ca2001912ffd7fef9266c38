@@ -1,0 +1,200 @@
+package naver.captcha;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Date;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+public class APIExamCaptchaAll {
+/*
+ * ik_9iwk0aCNEp85yIYA5
+ * br6PPxlpBj
+ */
+	String id = "ik_9iwk0aCNEp85yIYA5";
+	String pw = "br6PPxlpBj";
+	String key = null;
+	//키발급 메소드 선언
+	public void getKey() {
+	     try {
+	         String code = "0"; // 키 발급시 0,  캡차 이미지 비교시 1로 세팅
+	         String apiURL = "https://openapi.naver.com/v1/captcha/nkey?code=" + code;
+//네이버 웹서버에서 제공하는 캡챠서비스를 이용하기 위해 키발급 url을 선언하였다.
+//자바코드에서 웹서버에 페이지를 요청해야 하므로 URL객체를 생성함.	         
+	         URL url = new URL(apiURL);
+//그 요청객체를 활용하여 Http통신 프로토콜 커넥션을 연결함.	         
+	         HttpURLConnection con = (HttpURLConnection)url.openConnection();
+//전송 방식을 정함	         
+	         con.setRequestMethod("GET");
+//요청 속성에 아이디와 비번을 같이 넘김	         
+	         con.setRequestProperty("X-Naver-Client-Id", id);
+	         con.setRequestProperty("X-Naver-Client-Secret", pw);
+//네이버 웹서버에서 요청을 받아서 처리하고 그 결과를 HTTP상태코드값(200,404,500)	         
+	         int responseCode = con.getResponseCode();
+	         BufferedReader br;
+	         if(responseCode==200) { // 정상 호출 - OK
+//네이버 서버에서 생성한 응답 메시지를 읽기 위해서 InputStreamReader생성	        	 
+	             br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+	         } else {  // 에러 발생
+	             br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+	         }
+	         String inputLine;//읽은 들인 한줄을 담을 변수 선언
+	         //여러 메시지를 담으려면 String은 원본이 변하지 않으니까 StringBuffer생성
+	         StringBuffer response = new StringBuffer();
+	         //반복문에서 null아닐때 까지 읽어서 저장
+	         while ((inputLine = br.readLine()) != null) {
+	        	 //StringBuffer에 담긴 문자열을 붙인다.
+	             response.append(inputLine);
+	         }
+	         br.close();
+	         System.out.println(response.toString());//{key:dsfsfsdfsdfs}
+             //우리가 필요한 값은 key뿐이니까 필요한 값만 썰어서 저장.
+	         key = response.toString();
+             //key = key.substring(8, 24);
+	         JsonParser jsonPar = new JsonParser();
+	         JsonObject jsObj = jsonPar.parse(key).getAsJsonObject();
+	         String value = jsObj.get("key").toString();
+	         System.out.println("value:"+value);
+	         //JsonArray array = parser.parse(key).getAsJsonArray();
+	         //JsonElement el = array;
+	         //System.out.println(array.get(0));
+	         //System.out.println(el);
+			/*
+			 * for(JsonElement el:array) { System.out.println(el); }
+			 */
+             makeImage(value);
+	     } catch (Exception e) {
+	         System.out.println(e);
+	     }
+	}
+	//발급된 키로 캡챠이미지 생성하기
+	public void makeImage(String key) {
+		System.out.println("key:"+key);
+	     try {
+	         String apiURL = "https://openapi.naver.com/v1/captcha/ncaptcha.bin?key=" + key;
+	         URL url = new URL(apiURL);
+	         HttpURLConnection con = (HttpURLConnection)url.openConnection();
+	         con.setRequestMethod("GET");
+	         con.setRequestProperty("X-Naver-Client-Id", id);
+	         con.setRequestProperty("X-Naver-Client-Secret", pw);
+	         int responseCode = con.getResponseCode();
+	         BufferedReader br;
+	         if(responseCode==200) { // 정상 호출
+	             InputStream is = con.getInputStream();
+	             int read = 0;
+	             //네이버 서버에서 생성한 이미지 정보를 받아옴.
+	             //저장할 공간 생성
+	             byte[] bytes = new byte[1024];
+	             // 랜덤한 이름으로 파일 생성
+	             String tempname = Long.valueOf(new Date().getTime()).toString();
+//File은 파일명을 클래스로 만들어주는 객체임
+//그러나 파일만 생성되는 것이지 내용까지 담기는 건 아님.	
+	             String captchaName=tempname+".jpg";
+	             File f = new File(captchaName);
+	             //파라미터로 받은 이름으로 파일 생성
+	             f.createNewFile();
+	             OutputStream outputStream = new FileOutputStream(f);
+	             while ((read =is.read(bytes)) != -1) {
+	            //1)읽어들인 내용을 담을 저장소 주소번지, 2)0, 3)read	 
+	                 outputStream.write(bytes, 0, read);
+	             }
+	             is.close();
+	             JFrame jdl = new JFrame();
+	             JPanel jp_south=new JPanel();
+	             jp_south.setLayout(new BorderLayout());
+	             String imgPath = "D:\\workspace_script\\dev_html\\";
+	             JButton jbtn_new = new JButton("새로고침");
+	             JTextField jtf_user =new JTextField();
+	             JButton jbtn_captcha = 
+	            		 new JButton(new ImageIcon(imgPath+captchaName));
+	             jtf_user.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						chaptchaAccount(jtf_user.getText());
+					}
+	             });
+	             jbtn_new.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						jdl.dispose();
+						getKey();
+					}
+	             });
+	             jp_south.add("Center",jtf_user);
+	             jp_south.add("East",jbtn_new);
+	             jdl.add("Center",jbtn_captcha);
+	             jdl.add("South",jp_south);
+	             jdl.setTitle("캡챠이미지 화면출력");
+	             jdl.pack();
+	             jdl.setVisible(true);
+	         } else {  // 에러 발생
+	             br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+	             String inputLine;
+	             StringBuffer response = new StringBuffer();
+	             while ((inputLine = br.readLine()) != null) {
+	                 response.append(inputLine);
+	             }
+	             br.close();
+	             //만일 이미지 생성실패 하면 에러 메시지가 출력
+	             System.out.println(response.toString());
+	         }
+	     } catch (Exception e) {
+	         System.out.println(e);
+	     }		
+	}
+	//값을 비교해서 처리결과를 받아오기
+	public void chaptchaAccount(String user) {
+	     try {
+	         String code = "1"; // 키 발급시 0,  캡차 이미지 비교시 1로 세팅
+	         String value = user; // 사용자가 입력한 캡차 이미지 글자값
+	         String apiURL = "https://openapi.naver.com/v1/captcha/nkey?code=" + code +"&key="+ key + "&value="+ value;
+
+	         URL url = new URL(apiURL);
+	         //네이버 웹서버와 통신 하기 위한 클래스 생성 및 연결요청
+	         HttpURLConnection con = (HttpURLConnection)url.openConnection();
+	         con.setRequestMethod("GET");
+	         con.setRequestProperty("X-Naver-Client-Id", id);
+	         con.setRequestProperty("X-Naver-Client-Secret", pw);
+	         int responseCode = con.getResponseCode();
+	         BufferedReader br;
+	         //서버에 요청한 결과가 정상적으로 처리되면 200번 반환 -HTTP상태
+	         if(responseCode==200) { // 정상 호출
+	             br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+	         } else {  // 에러 발생
+	             br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+	         }
+	         String inputLine;
+	         StringBuffer response = new StringBuffer();
+	         //읽어들인 값이 null이 아닐때까지 반복
+	         while ((inputLine = br.readLine()) != null) {
+	             response.append(inputLine);
+	         }
+	         br.close();
+	         //정상적(캡챠이미지에 적힌 문자열과 사용자가 입력한 문자열 같니?)으로 처리가 되면 
+	         System.out.println(response.toString());
+	     } catch (Exception e) {
+	         System.out.println(e);
+	     }		
+	}
+	public static void main(String[] args) {
+		APIExamCaptchaAll apiCaptcha = new APIExamCaptchaAll();
+		apiCaptcha.getKey();
+	}
+
+}

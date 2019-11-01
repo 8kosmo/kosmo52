@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery코드로 변경 - 매초마다 갱신처리</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<h1 id='news'></h1>
+	<script type="text/javascript">
+		window.onload = function(){
+			var news = $('news');
+			//매 1초마다 함수를 실행한다.
+			setInterval(function (){
+				news.html(new Date().toString());
+			},1000);
+		}
+	</script>
+</body>
+</html>
